@@ -1,0 +1,390 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0F92928C4E172883A48F1A6E /* libPods-QJWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B351E826921805F008E5FCA8 /* libPods-QJWeibo.a */; };
+		FB4321931DEAE67700CE74C5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4321921DEAE67700CE74C5 /* Security.framework */; };
+		FB4321981DEB1F1B00CE74C5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4321961DEB1F1B00CE74C5 /* Default.png */; };
+		FB4321991DEB1F1B00CE74C5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4321971DEB1F1B00CE74C5 /* Default@2x.png */; };
+		FB43219B1DEB1F8500CE74C5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB43219A1DEB1F8500CE74C5 /* Default-568h@2x.png */; };
+		FB43219D1DEB22A600CE74C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB43219C1DEB22A600CE74C5 /* main.m */; };
+		FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB72F4171DE9CDCA00996E06 /* AppDelegate.m */; };
+		FB72F41B1DE9CDCA00996E06 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB72F41A1DE9CDCA00996E06 /* MainViewController.m */; };
+		FB72F4201DE9CDCA00996E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		96C63CC94724B41B7B2E38EE /* Pods-QJWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QJWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo.release.xcconfig"; sourceTree = "<group>"; };
+		9757CA0BF09C060306E2A33D /* Pods-QJWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QJWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo.debug.xcconfig"; sourceTree = "<group>"; };
+		B351E826921805F008E5FCA8 /* libPods-QJWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QJWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB4321921DEAE67700CE74C5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FB4321961DEB1F1B00CE74C5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "Supporting Files/Default.png"; sourceTree = "<group>"; };
+		FB4321971DEB1F1B00CE74C5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Supporting Files/Default@2x.png"; sourceTree = "<group>"; };
+		FB43219A1DEB1F8500CE74C5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Supporting Files/Default-568h@2x.png"; sourceTree = "<group>"; };
+		FB43219C1DEB22A600CE74C5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
+		FB72F4101DE9CDCA00996E06 /* QJWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QJWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB72F4161DE9CDCA00996E06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FB72F4171DE9CDCA00996E06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FB72F4191DE9CDCA00996E06 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		FB72F41A1DE9CDCA00996E06 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB72F4241DE9CDCA00996E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB72F40D1DE9CDCA00996E06 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4321931DEAE67700CE74C5 /* Security.framework in Frameworks */,
+				0F92928C4E172883A48F1A6E /* libPods-QJWeibo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F5708A7A9C21000B44FF249 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9757CA0BF09C060306E2A33D /* Pods-QJWeibo.debug.xcconfig */,
+				96C63CC94724B41B7B2E38EE /* Pods-QJWeibo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C2A8830BB524D60A01852827 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FB4321921DEAE67700CE74C5 /* Security.framework */,
+				B351E826921805F008E5FCA8 /* libPods-QJWeibo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB72F4071DE9CDCA00996E06 = {
+			isa = PBXGroup;
+			children = (
+				FB72F4121DE9CDCA00996E06 /* QJWeibo */,
+				FB72F4111DE9CDCA00996E06 /* Products */,
+				1F5708A7A9C21000B44FF249 /* Pods */,
+				C2A8830BB524D60A01852827 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FB72F4111DE9CDCA00996E06 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB72F4101DE9CDCA00996E06 /* QJWeibo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB72F4121DE9CDCA00996E06 /* QJWeibo */ = {
+			isa = PBXGroup;
+			children = (
+				FB72F4161DE9CDCA00996E06 /* AppDelegate.h */,
+				FB72F4171DE9CDCA00996E06 /* AppDelegate.m */,
+				FB72F4191DE9CDCA00996E06 /* MainViewController.h */,
+				FB72F41A1DE9CDCA00996E06 /* MainViewController.m */,
+				FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */,
+				FB72F4241DE9CDCA00996E06 /* Info.plist */,
+				FB72F4131DE9CDCA00996E06 /* Supporting Files */,
+			);
+			path = QJWeibo;
+			sourceTree = "<group>";
+		};
+		FB72F4131DE9CDCA00996E06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB4321961DEB1F1B00CE74C5 /* Default.png */,
+				FB43219A1DEB1F8500CE74C5 /* Default-568h@2x.png */,
+				FB4321971DEB1F1B00CE74C5 /* Default@2x.png */,
+				FB43219C1DEB22A600CE74C5 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB72F40F1DE9CDCA00996E06 /* QJWeibo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB72F4271DE9CDCA00996E06 /* Build configuration list for PBXNativeTarget "QJWeibo" */;
+			buildPhases = (
+				DBB3E8D08409B72A857DC37D /* [CP] Check Pods Manifest.lock */,
+				FB72F40C1DE9CDCA00996E06 /* Sources */,
+				FB72F40D1DE9CDCA00996E06 /* Frameworks */,
+				FB72F40E1DE9CDCA00996E06 /* Resources */,
+				580A7BAF26C70FBAE69AFAC8 /* [CP] Embed Pods Frameworks */,
+				143FCAA93234C6AAAF57F30A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = QJWeibo;
+			productName = QJWeibo;
+			productReference = FB72F4101DE9CDCA00996E06 /* QJWeibo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB72F4081DE9CDCA00996E06 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = ShaoJun;
+				TargetAttributes = {
+					FB72F40F1DE9CDCA00996E06 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = NJ84XW37VD;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FB72F40B1DE9CDCA00996E06 /* Build configuration list for PBXProject "QJWeibo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB72F4071DE9CDCA00996E06;
+			productRefGroup = FB72F4111DE9CDCA00996E06 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB72F40F1DE9CDCA00996E06 /* QJWeibo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB72F40E1DE9CDCA00996E06 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB4321991DEB1F1B00CE74C5 /* Default@2x.png in Resources */,
+				FB43219B1DEB1F8500CE74C5 /* Default-568h@2x.png in Resources */,
+				FB72F4201DE9CDCA00996E06 /* Assets.xcassets in Resources */,
+				FB4321981DEB1F1B00CE74C5 /* Default.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		143FCAA93234C6AAAF57F30A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		580A7BAF26C70FBAE69AFAC8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DBB3E8D08409B72A857DC37D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB72F40C1DE9CDCA00996E06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB72F41B1DE9CDCA00996E06 /* MainViewController.m in Sources */,
+				FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */,
+				FB43219D1DEB22A600CE74C5 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FB72F4251DE9CDCA00996E06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FB72F4261DE9CDCA00996E06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB72F4281DE9CDCA00996E06 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9757CA0BF09C060306E2A33D /* Pods-QJWeibo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = NJ84XW37VD;
+				INFOPLIST_FILE = QJWeibo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.jason5.qjweibo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		FB72F4291DE9CDCA00996E06 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 96C63CC94724B41B7B2E38EE /* Pods-QJWeibo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				DEVELOPMENT_TEAM = NJ84XW37VD;
+				INFOPLIST_FILE = QJWeibo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.jason5.qjweibo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB72F40B1DE9CDCA00996E06 /* Build configuration list for PBXProject "QJWeibo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB72F4251DE9CDCA00996E06 /* Debug */,
+				FB72F4261DE9CDCA00996E06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB72F4271DE9CDCA00996E06 /* Build configuration list for PBXNativeTarget "QJWeibo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB72F4281DE9CDCA00996E06 /* Debug */,
+				FB72F4291DE9CDCA00996E06 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB72F4081DE9CDCA00996E06 /* Project object */;
+}
