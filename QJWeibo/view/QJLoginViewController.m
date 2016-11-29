@@ -6,11 +6,11 @@
 //  Copyright © 2016年 ShaoJun. All rights reserved.
 //
 
-#import "MainViewController.h"
+#import "QJLoginViewController.h"
 #import "WeiboSDK.h"
 #import "WeiboSDK+Statistics.h"
 
-@interface MainViewController ()
+@interface QJLoginViewController ()
 
 /*
 App Key：1730913158
@@ -21,7 +21,7 @@ App Secret：ace731305639467357b1bea6317db3fb
 
 @end
 
-@implementation MainViewController
+@implementation QJLoginViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

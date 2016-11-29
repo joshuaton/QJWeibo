@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController
+@interface QJLoginViewController : UIViewController
 
 
 @end

@@ -13,8 +13,10 @@
 		FB4321991DEB1F1B00CE74C5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4321971DEB1F1B00CE74C5 /* Default@2x.png */; };
 		FB43219B1DEB1F8500CE74C5 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB43219A1DEB1F8500CE74C5 /* Default-568h@2x.png */; };
 		FB43219D1DEB22A600CE74C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB43219C1DEB22A600CE74C5 /* main.m */; };
+		FB4321A31DEDBCC600CE74C5 /* QJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4321A21DEDBCC600CE74C5 /* QJLoginViewController.m */; };
+		FB4321A51DEDBCDD00CE74C5 /* QJIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4321A41DEDBCDD00CE74C5 /* QJIndexViewController.m */; };
+		FB4321A71DEDBDCF00CE74C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4321A61DEDBDCF00CE74C5 /* UIKit.framework */; };
 		FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB72F4171DE9CDCA00996E06 /* AppDelegate.m */; };
-		FB72F41B1DE9CDCA00996E06 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB72F41A1DE9CDCA00996E06 /* MainViewController.m */; };
 		FB72F4201DE9CDCA00996E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
@@ -27,11 +29,14 @@
 		FB4321971DEB1F1B00CE74C5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Supporting Files/Default@2x.png"; sourceTree = "<group>"; };
 		FB43219A1DEB1F8500CE74C5 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Supporting Files/Default-568h@2x.png"; sourceTree = "<group>"; };
 		FB43219C1DEB22A600CE74C5 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = "Supporting Files/main.m"; sourceTree = "<group>"; };
+		FB4321A01DEDBCC600CE74C5 /* QJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QJLoginViewController.h; path = view/QJLoginViewController.h; sourceTree = "<group>"; };
+		FB4321A11DEDBCC600CE74C5 /* QJIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QJIndexViewController.h; path = view/QJIndexViewController.h; sourceTree = "<group>"; };
+		FB4321A21DEDBCC600CE74C5 /* QJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QJLoginViewController.m; path = view/QJLoginViewController.m; sourceTree = "<group>"; };
+		FB4321A41DEDBCDD00CE74C5 /* QJIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QJIndexViewController.m; sourceTree = "<group>"; };
+		FB4321A61DEDBDCF00CE74C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FB72F4101DE9CDCA00996E06 /* QJWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QJWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB72F4161DE9CDCA00996E06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FB72F4171DE9CDCA00996E06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		FB72F4191DE9CDCA00996E06 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
-		FB72F41A1DE9CDCA00996E06 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 		FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB72F4241DE9CDCA00996E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -41,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB4321A71DEDBDCF00CE74C5 /* UIKit.framework in Frameworks */,
 				FB4321931DEAE67700CE74C5 /* Security.framework in Frameworks */,
 				0F92928C4E172883A48F1A6E /* libPods-QJWeibo.a in Frameworks */,
 			);
@@ -61,10 +67,22 @@
 		C2A8830BB524D60A01852827 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB4321A61DEDBDCF00CE74C5 /* UIKit.framework */,
 				FB4321921DEAE67700CE74C5 /* Security.framework */,
 				B351E826921805F008E5FCA8 /* libPods-QJWeibo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FB43219F1DEDBCA800CE74C5 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				FB4321A01DEDBCC600CE74C5 /* QJLoginViewController.h */,
+				FB4321A21DEDBCC600CE74C5 /* QJLoginViewController.m */,
+				FB4321A11DEDBCC600CE74C5 /* QJIndexViewController.h */,
+				FB4321A41DEDBCDD00CE74C5 /* QJIndexViewController.m */,
+			);
+			name = view;
 			sourceTree = "<group>";
 		};
 		FB72F4071DE9CDCA00996E06 = {
@@ -88,10 +106,9 @@
 		FB72F4121DE9CDCA00996E06 /* QJWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				FB43219F1DEDBCA800CE74C5 /* view */,
 				FB72F4161DE9CDCA00996E06 /* AppDelegate.h */,
 				FB72F4171DE9CDCA00996E06 /* AppDelegate.m */,
-				FB72F4191DE9CDCA00996E06 /* MainViewController.h */,
-				FB72F41A1DE9CDCA00996E06 /* MainViewController.m */,
 				FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */,
 				FB72F4241DE9CDCA00996E06 /* Info.plist */,
 				FB72F4131DE9CDCA00996E06 /* Supporting Files */,
@@ -234,7 +251,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB72F41B1DE9CDCA00996E06 /* MainViewController.m in Sources */,
+				FB4321A51DEDBCDD00CE74C5 /* QJIndexViewController.m in Sources */,
+				FB4321A31DEDBCC600CE74C5 /* QJLoginViewController.m in Sources */,
 				FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */,
 				FB43219D1DEB22A600CE74C5 /* main.m in Sources */,
 			);
