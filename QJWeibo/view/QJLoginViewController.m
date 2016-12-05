@@ -17,7 +17,7 @@ App Key：1730913158
 App Secret：ace731305639467357b1bea6317db3fb
 */
 
-@property (nonatomic, retain) UIButton *loginButton;
+@property (nonatomic, strong) UIButton *loginButton;
 
 @end
 

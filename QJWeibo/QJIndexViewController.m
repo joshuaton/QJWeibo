@@ -8,18 +8,20 @@
 #import "QJIndexViewController.h"
 #import "WBHttpRequest.h"
 #import "QJLoginViewController.h"
+#import "QJFeedCell.h"
 
 @interface QJIndexViewController() <WBHttpRequestDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, copy) NSString *accessToken;
-@property (nonatomic, retain) UITableView *tableView;
-@property (nonatomic, retain) NSMutableArray *feeds;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *feeds;
+@property (nonatomic, strong) QJFeedCell *prototypeCell;
 
 @end
 
 @implementation QJIndexViewController
 
--(void)viewDidLoad{
+- (void)viewDidLoad{
     [super viewDidLoad];
     
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -39,10 +41,13 @@
                                       [[UIScreen mainScreen] bounds].size.height);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    [self.tableView registerClass:[QJFeedCell class] forCellReuseIdentifier:QJFeedCellReuseId];
     [self.view addSubview:self.tableView];
+    
+    self.prototypeCell = [self.tableView dequeueReusableCellWithIdentifier:QJFeedCellReuseId];
 }
 
--(void)queryFriendFeeds{
+- (void)queryFriendFeeds{
     
     
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:2];
@@ -64,11 +69,6 @@
     
     NSMutableArray *feeds = [json objectForKey:@"statuses"];
     self.feeds = feeds;
-    for(int i=0; i<[feeds count]; i++){
-        NSDictionary *feed = [feeds objectAtIndex:i];
-        NSLog(@"feed:%@", feed);
-    }
-    
     [self.tableView reloadData];
  
 }
@@ -78,18 +78,16 @@
     return [self.feeds count];
 }
 
-- (UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    UITableViewCell *cell = [[UITableViewCell alloc] init];
-    
-    NSDictionary *feed = [self.feeds objectAtIndex:indexPath.row];
-    
-    cell.textLabel.text = [feed objectForKey:@"text"];
-    
+- (QJFeedCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    QJFeedCell *cell = (QJFeedCell *)[tableView dequeueReusableCellWithIdentifier:QJFeedCellReuseId forIndexPath:indexPath];
+    cell.feed = [self.feeds objectAtIndex:indexPath.row];
     return cell;
 }
 
 - (CGFloat)tableView:(nonnull UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    return 100;
+    QJFeedCell *cell = self.prototypeCell;
+    cell.feed = [self.feeds objectAtIndex:indexPath.row];
+    return cell.cellHeight;
 }
 
 - (void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{

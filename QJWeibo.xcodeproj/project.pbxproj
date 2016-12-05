@@ -18,6 +18,7 @@
 		FB4321A71DEDBDCF00CE74C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4321A61DEDBDCF00CE74C5 /* UIKit.framework */; };
 		FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB72F4171DE9CDCA00996E06 /* AppDelegate.m */; };
 		FB72F4201DE9CDCA00996E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */; };
+		FBD8FEAC1DF3F3F30051F8C8 /* QJFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD8FEAB1DF3F3F30051F8C8 /* QJFeedCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,8 @@
 		FB72F4171DE9CDCA00996E06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB72F4241DE9CDCA00996E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FBD8FEAA1DF3F3E20051F8C8 /* QJFeedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QJFeedCell.h; path = cell/QJFeedCell.h; sourceTree = "<group>"; };
+		FBD8FEAB1DF3F3F30051F8C8 /* QJFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QJFeedCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +109,7 @@
 		FB72F4121DE9CDCA00996E06 /* QJWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				FBD8FEA91DF3F3AB0051F8C8 /* cell */,
 				FB43219F1DEDBCA800CE74C5 /* view */,
 				FB72F4161DE9CDCA00996E06 /* AppDelegate.h */,
 				FB72F4171DE9CDCA00996E06 /* AppDelegate.m */,
@@ -125,6 +129,15 @@
 				FB43219C1DEB22A600CE74C5 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FBD8FEA91DF3F3AB0051F8C8 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				FBD8FEAA1DF3F3E20051F8C8 /* QJFeedCell.h */,
+				FBD8FEAB1DF3F3F30051F8C8 /* QJFeedCell.m */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -253,6 +266,7 @@
 			files = (
 				FB4321A51DEDBCDD00CE74C5 /* QJIndexViewController.m in Sources */,
 				FB4321A31DEDBCC600CE74C5 /* QJLoginViewController.m in Sources */,
+				FBD8FEAC1DF3F3F30051F8C8 /* QJFeedCell.m in Sources */,
 				FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */,
 				FB43219D1DEB22A600CE74C5 /* main.m in Sources */,
 			);
