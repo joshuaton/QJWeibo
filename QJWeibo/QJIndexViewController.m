@@ -85,7 +85,7 @@
 
 - (CGFloat)tableView:(nonnull UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     NSDictionary *feed = [self.feeds objectAtIndex:indexPath.row];
-    return [self heightForRowWithModel:feed];
+    return [self heightForRowWithModel:feed] + HeadImageViewWidth;
 }
 
 - (void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{

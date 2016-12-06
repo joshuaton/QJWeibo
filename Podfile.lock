@@ -1,7 +1,11 @@
 PODS:
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
   - WeiboSDK (3.1.4)
 
 DEPENDENCIES:
+  - SDWebImage (~> 3.8)
   - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
 
 EXTERNAL SOURCES:
@@ -14,8 +18,9 @@ CHECKOUT OPTIONS:
     :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 SPEC CHECKSUMS:
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
 
-PODFILE CHECKSUM: 2fb7bbe543e919c842ac7e6963ab83f996061be3
+PODFILE CHECKSUM: 8423d19293904861f45c20edce93afe3ef3004a2
 
 COCOAPODS: 1.1.1

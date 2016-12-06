@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 
 #define QJFeedCellReuseId @"QJFeedCellReuseId"
+#define HeadImageViewWidth 30
 
 @interface QJFeedCell : UITableViewCell
 

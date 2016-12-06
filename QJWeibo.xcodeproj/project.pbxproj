@@ -18,6 +18,7 @@
 		FB4321A71DEDBDCF00CE74C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4321A61DEDBDCF00CE74C5 /* UIKit.framework */; };
 		FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB72F4171DE9CDCA00996E06 /* AppDelegate.m */; };
 		FB72F4201DE9CDCA00996E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */; };
+		FB9BBDD01DF71D40009E3257 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FB9BBDCF1DF71D40009E3257 /* Podfile */; };
 		FBD8FEAC1DF3F3F30051F8C8 /* QJFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBD8FEAB1DF3F3F30051F8C8 /* QJFeedCell.m */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +41,7 @@
 		FB72F4171DE9CDCA00996E06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB72F4241DE9CDCA00996E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB9BBDCF1DF71D40009E3257 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		FBD8FEAA1DF3F3E20051F8C8 /* QJFeedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QJFeedCell.h; path = cell/QJFeedCell.h; sourceTree = "<group>"; };
 		FBD8FEAB1DF3F3F30051F8C8 /* QJFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QJFeedCell.m; sourceTree = "<group>"; };
 		FBD8FEAE1DF6F8050051F8C8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
@@ -96,6 +98,7 @@
 				FB72F4111DE9CDCA00996E06 /* Products */,
 				1F5708A7A9C21000B44FF249 /* Pods */,
 				C2A8830BB524D60A01852827 /* Frameworks */,
+				FB9BBDCF1DF71D40009E3257 /* Podfile */,
 			);
 			sourceTree = "<group>";
 		};
@@ -204,6 +207,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9BBDD01DF71D40009E3257 /* Podfile in Resources */,
 				FB4321991DEB1F1B00CE74C5 /* Default@2x.png in Resources */,
 				FB43219B1DEB1F8500CE74C5 /* Default-568h@2x.png in Resources */,
 				FB72F4201DE9CDCA00996E06 /* Assets.xcassets in Resources */,
