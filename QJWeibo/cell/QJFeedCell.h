@@ -13,6 +13,4 @@
 
 @property (nonatomic, strong) NSDictionary *feed;
 
--(CGFloat)cellHeight;
-
 @end

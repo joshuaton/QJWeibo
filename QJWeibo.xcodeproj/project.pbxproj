@@ -42,6 +42,7 @@
 		FB72F4241DE9CDCA00996E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBD8FEAA1DF3F3E20051F8C8 /* QJFeedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QJFeedCell.h; path = cell/QJFeedCell.h; sourceTree = "<group>"; };
 		FBD8FEAB1DF3F3F30051F8C8 /* QJFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QJFeedCell.m; sourceTree = "<group>"; };
+		FBD8FEAE1DF6F8050051F8C8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +116,7 @@
 				FB72F4171DE9CDCA00996E06 /* AppDelegate.m */,
 				FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */,
 				FB72F4241DE9CDCA00996E06 /* Info.plist */,
+				FBD8FEAE1DF6F8050051F8C8 /* PrefixHeader.pch */,
 				FB72F4131DE9CDCA00996E06 /* Supporting Files */,
 			);
 			path = QJWeibo;
@@ -370,6 +372,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = NJ84XW37VD;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/QJWeibo/PrefixHeader.pch";
 				INFOPLIST_FILE = QJWeibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -386,6 +390,8 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = NJ84XW37VD;
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/QJWeibo/PrefixHeader.pch";
 				INFOPLIST_FILE = QJWeibo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

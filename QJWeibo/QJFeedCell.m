@@ -13,6 +13,7 @@
 @interface QJFeedCell()
 
 @property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UIView *seperatorView;
 
 @end
 
@@ -20,10 +21,7 @@
 
 -(void)layoutSubviews{
     self.contentLabel.frame = CGRectMake(0, 0, [[UIScreen mainScreen] bounds].size.width - ContentMargin * 2, self.frame.size.height);
-}
-
--(CGFloat)cellHeight{
-    return self.contentLabel.frame.size.height;
+    self.seperatorView.frame = CGRectMake(0, self.frame.size.height-1, ScreenWidth, 1);
 }
 
 #pragma mark - getter & setter
@@ -40,6 +38,15 @@
         [self addSubview:_contentLabel];
     }
     return _contentLabel;
+}
+
+-(UIView *)seperatorView{
+    if(!_seperatorView){
+        _seperatorView = [[UIView alloc] init];
+        _seperatorView.backgroundColor = [UIColor grayColor];
+        [self addSubview:_seperatorView];
+    }
+    return _seperatorView;
 }
 
 
