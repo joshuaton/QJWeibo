@@ -6,7 +6,6 @@
 //  Copyright © 2016年 ShaoJun. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 
 @interface QJLoginViewController : UIViewController
 

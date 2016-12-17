@@ -17,16 +17,26 @@
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
 @property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UIView *seperatorView;
 
 @end
 
 @implementation QJFeedCell
 
 -(void)layoutSubviews{
-    self.headImageView.frame = CGRectMake(0, 0, HeadImageViewWidth, HeadImageViewWidth);
-    self.nameLabel.frame = CGRectMake(CGRectGetMaxX(self.headImageView.frame), self.headImageView.frame.origin.y, self.nameLabel.frame.size.width, self.nameLabel.frame.size.height);
+    
+    self.headImageView.frame = CGRectMake(ContentMargin, BLANK_OFFSET, HEAD_IMAGEVIEW_WIDTH, HEAD_IMAGEVIEW_WIDTH);
+    
+    self.nameLabel.frame = CGRectMake(CGRectGetMaxX(self.headImageView.frame)+BLANK_OFFSET, self.headImageView.frame.origin.y, self.nameLabel.frame.size.width, self.nameLabel.frame.size.height);
+    
     self.timeLabel.frame = CGRectMake(self.nameLabel.frame.origin.x, CGRectGetMaxY(self.nameLabel.frame), self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
-    self.contentLabel.frame = CGRectMake(0, CGRectGetMaxY(self.headImageView.frame), [[UIScreen mainScreen] bounds].size.width - ContentMargin * 2, self.frame.size.height);
+    
+    CGSize maxSize = CGSizeMake(SCREEN_WIDTH - ContentMargin * 2, MAXFLOAT);
+    CGFloat textHeight = [self.contentLabel.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+    maxSize.height = textHeight;
+    self.contentLabel.frame = CGRectMake(ContentMargin, CGRectGetMaxY(self.headImageView.frame)+BLANK_OFFSET, maxSize.width, maxSize.height);
+    
+    self.seperatorView.frame = CGRectMake(0, self.frame.size.height-1, SCREEN_WIDTH, 1);
 }
 
 #pragma mark - getter & setter
@@ -39,7 +49,7 @@
     
     [self.nameLabel sizeToFit];
     [self.timeLabel sizeToFit];
-    [self.timeLabel sizeToFit];
+    [self.contentLabel sizeToFit];
     
     
     [self layoutSubviews];
@@ -75,9 +85,20 @@
     if(!_contentLabel){
         _contentLabel = [[UILabel alloc] init];
         _contentLabel.numberOfLines = 0;
+        _contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
+        _contentLabel.font = [UIFont systemFontOfSize:14.0f];
         [self addSubview:_contentLabel];
     }
     return _contentLabel;
+}
+
+-(UIView *)seperatorView{
+    if(!_seperatorView){
+        _seperatorView = [[UIView alloc] init];
+        _seperatorView.backgroundColor = [UIColor lightGrayColor];
+        [self addSubview:_seperatorView];
+    }
+    return _seperatorView;
 }
 
 

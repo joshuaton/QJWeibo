@@ -16,6 +16,7 @@
 		FB4321A31DEDBCC600CE74C5 /* QJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4321A21DEDBCC600CE74C5 /* QJLoginViewController.m */; };
 		FB4321A51DEDBCDD00CE74C5 /* QJIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4321A41DEDBCDD00CE74C5 /* QJIndexViewController.m */; };
 		FB4321A71DEDBDCF00CE74C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4321A61DEDBDCF00CE74C5 /* UIKit.framework */; };
+		FB6499DF1E04E2BA0008BB57 /* QJFeedCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FB6499DE1E04E2BA0008BB57 /* QJFeedCellModel.m */; };
 		FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB72F4171DE9CDCA00996E06 /* AppDelegate.m */; };
 		FB72F4201DE9CDCA00996E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */; };
 		FB9BBDD01DF71D40009E3257 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FB9BBDCF1DF71D40009E3257 /* Podfile */; };
@@ -36,6 +37,8 @@
 		FB4321A21DEDBCC600CE74C5 /* QJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QJLoginViewController.m; path = view/QJLoginViewController.m; sourceTree = "<group>"; };
 		FB4321A41DEDBCDD00CE74C5 /* QJIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QJIndexViewController.m; sourceTree = "<group>"; };
 		FB4321A61DEDBDCF00CE74C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FB6499DD1E04E2A90008BB57 /* QJFeedCellModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QJFeedCellModel.h; sourceTree = "<group>"; };
+		FB6499DE1E04E2BA0008BB57 /* QJFeedCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QJFeedCellModel.m; sourceTree = "<group>"; };
 		FB72F4101DE9CDCA00996E06 /* QJWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QJWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB72F4161DE9CDCA00996E06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FB72F4171DE9CDCA00996E06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -141,6 +144,8 @@
 			children = (
 				FBD8FEAA1DF3F3E20051F8C8 /* QJFeedCell.h */,
 				FBD8FEAB1DF3F3F30051F8C8 /* QJFeedCell.m */,
+				FB6499DD1E04E2A90008BB57 /* QJFeedCellModel.h */,
+				FB6499DE1E04E2BA0008BB57 /* QJFeedCellModel.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -274,6 +279,7 @@
 				FB4321A31DEDBCC600CE74C5 /* QJLoginViewController.m in Sources */,
 				FBD8FEAC1DF3F3F30051F8C8 /* QJFeedCell.m in Sources */,
 				FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */,
+				FB6499DF1E04E2BA0008BB57 /* QJFeedCellModel.m in Sources */,
 				FB43219D1DEB22A600CE74C5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
