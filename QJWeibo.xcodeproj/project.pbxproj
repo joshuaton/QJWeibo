@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0F92928C4E172883A48F1A6E /* libPods-QJWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B351E826921805F008E5FCA8 /* libPods-QJWeibo.a */; };
+		FB05E6961E055C9E00F32643 /* QJFeedImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB05E6951E055C9E00F32643 /* QJFeedImageCell.m */; };
 		FB4321931DEAE67700CE74C5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4321921DEAE67700CE74C5 /* Security.framework */; };
 		FB4321981DEB1F1B00CE74C5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4321961DEB1F1B00CE74C5 /* Default.png */; };
 		FB4321991DEB1F1B00CE74C5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4321971DEB1F1B00CE74C5 /* Default@2x.png */; };
@@ -27,6 +28,8 @@
 		96C63CC94724B41B7B2E38EE /* Pods-QJWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QJWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		9757CA0BF09C060306E2A33D /* Pods-QJWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QJWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		B351E826921805F008E5FCA8 /* libPods-QJWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QJWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB05E6941E055C9200F32643 /* QJFeedImageCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QJFeedImageCell.h; sourceTree = "<group>"; };
+		FB05E6951E055C9E00F32643 /* QJFeedImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QJFeedImageCell.m; sourceTree = "<group>"; };
 		FB4321921DEAE67700CE74C5 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		FB4321961DEB1F1B00CE74C5 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = "Supporting Files/Default.png"; sourceTree = "<group>"; };
 		FB4321971DEB1F1B00CE74C5 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Supporting Files/Default@2x.png"; sourceTree = "<group>"; };
@@ -146,6 +149,8 @@
 				FBD8FEAB1DF3F3F30051F8C8 /* QJFeedCell.m */,
 				FB6499DD1E04E2A90008BB57 /* QJFeedCellModel.h */,
 				FB6499DE1E04E2BA0008BB57 /* QJFeedCellModel.m */,
+				FB05E6941E055C9200F32643 /* QJFeedImageCell.h */,
+				FB05E6951E055C9E00F32643 /* QJFeedImageCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -276,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB4321A51DEDBCDD00CE74C5 /* QJIndexViewController.m in Sources */,
+				FB05E6961E055C9E00F32643 /* QJFeedImageCell.m in Sources */,
 				FB4321A31DEDBCC600CE74C5 /* QJLoginViewController.m in Sources */,
 				FBD8FEAC1DF3F3F30051F8C8 /* QJFeedCell.m in Sources */,
 				FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */,

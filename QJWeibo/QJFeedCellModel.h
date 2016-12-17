@@ -8,6 +8,7 @@
 
 #import "QJFeedCell.h"
 
+
 @interface QJFeedCellModel : NSObject
 
 @property (nonatomic, strong) NSDictionary *feed;

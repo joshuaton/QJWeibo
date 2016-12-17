@@ -20,5 +20,7 @@
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 #define STATUS_BAR_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
+#define HALF_BLANK_OFFSET 5
+#define BLANK_OFFSET 10
 
 #endif /* PrefixHeader_pch */

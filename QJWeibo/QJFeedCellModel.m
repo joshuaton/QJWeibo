@@ -16,7 +16,14 @@
     
     CGFloat textHeight = [self.feed[@"text"] boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
     
-    return BLANK_OFFSET + HEAD_IMAGEVIEW_WIDTH + BLANK_OFFSET+ textHeight + BLANK_OFFSET;
+    float imageRowNum = 0;
+    if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
+        imageRowNum = ([self.feed[@"pic_urls"] count]-1)/3+1;
+    }
+    float singleRowHeight = (SCREEN_WIDTH-BLANK_OFFSET*2)/3;
+    float imageCollectionViewHeight = imageRowNum*singleRowHeight;
+    
+    return BLANK_OFFSET + HEAD_IMAGEVIEW_WIDTH + BLANK_OFFSET+ textHeight + BLANK_OFFSET + imageCollectionViewHeight + BLANK_OFFSET;
 }
 
 @end

@@ -8,7 +8,6 @@
 
 #define QJFeedCellReuseId @"QJFeedCellReuseId"
 #define HEAD_IMAGEVIEW_WIDTH 30
-#define BLANK_OFFSET 10
 
 @interface QJFeedCell : UITableViewCell
 
