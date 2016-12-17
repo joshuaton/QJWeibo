@@ -22,5 +22,6 @@
 #define STATUS_BAR_HEIGHT [[UIApplication sharedApplication] statusBarFrame].size.height
 #define HALF_BLANK_OFFSET 5
 #define BLANK_OFFSET 10
+#define ONE_PIXEL (1.0/[UIScreen mainScreen].scale)
 
 #endif /* PrefixHeader_pch */

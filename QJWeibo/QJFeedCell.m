@@ -25,17 +25,32 @@
 
 @implementation QJFeedCell
 
+-(id)initWithFrame:(CGRect)frame{
+    self = [super initWithFrame:frame];
+    if (self){
+        [self headImageView];
+        [self nameLabel];
+        [self timeLabel];
+        [self contentLabel];
+        [self imageCollectionView];
+        [self seperatorView];
+    }
+    return self;
+}
+
 -(void)layoutSubviews{
     
     self.headImageView.frame = CGRectMake(BLANK_OFFSET, BLANK_OFFSET, HEAD_IMAGEVIEW_WIDTH, HEAD_IMAGEVIEW_WIDTH);
     
+    [self.nameLabel sizeToFit];
     self.nameLabel.frame = CGRectMake(CGRectGetMaxX(self.headImageView.frame)+BLANK_OFFSET, self.headImageView.frame.origin.y, self.nameLabel.frame.size.width, self.nameLabel.frame.size.height);
     
+    [self.timeLabel sizeToFit];
     self.timeLabel.frame = CGRectMake(self.nameLabel.frame.origin.x, CGRectGetMaxY(self.nameLabel.frame), self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     
     CGSize maxSize = CGSizeMake(SCREEN_WIDTH - BLANK_OFFSET * 2, MAXFLOAT);
     CGFloat textHeight = [self.contentLabel.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
-    maxSize.height = textHeight;
+    maxSize.height = ceil(textHeight);
     self.contentLabel.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.headImageView.frame)+BLANK_OFFSET, maxSize.width, maxSize.height);
     
     float imageRowNum = 0;
@@ -45,7 +60,7 @@
     float singleRowHeight = (SCREEN_WIDTH-BLANK_OFFSET*2)/3;
     self.imageCollectionView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.contentLabel.frame)+BLANK_OFFSET, SCREEN_WIDTH-BLANK_OFFSET*2, imageRowNum*singleRowHeight);
     
-    self.seperatorView.frame = CGRectMake(0, self.frame.size.height-1, SCREEN_WIDTH, 1);
+    self.seperatorView.frame = CGRectMake(0, self.frame.size.height-ONE_PIXEL, SCREEN_WIDTH, ONE_PIXEL);
 }
 
 #pragma mark - getter & setter
@@ -59,12 +74,6 @@
     self.contentLabel.text = [feed objectForKey:@"text"];
     [self.imageCollectionView reloadData];
     
-    [self.nameLabel sizeToFit];
-    [self.timeLabel sizeToFit];
-    [self.contentLabel sizeToFit];
-    
-    
-    [self layoutSubviews];
 }
 
 -(UIImageView *)headImageView{
