@@ -14,7 +14,7 @@
     
     CGSize maxSize = CGSizeMake(SCREEN_WIDTH-2*BLANK_OFFSET, MAXFLOAT);
     
-    CGFloat textHeight = [self.feed[@"text"] boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+    CGFloat textHeight = [self.feed[@"text"] boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16]} context:nil].size.height;
     textHeight = ceil(textHeight);
     
     float imageRowNum = 0;

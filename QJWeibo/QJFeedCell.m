@@ -49,7 +49,7 @@
     self.timeLabel.frame = CGRectMake(self.nameLabel.frame.origin.x, CGRectGetMaxY(self.nameLabel.frame), self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     
     CGSize maxSize = CGSizeMake(SCREEN_WIDTH - BLANK_OFFSET * 2, MAXFLOAT);
-    CGFloat textHeight = [self.contentLabel.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:14]} context:nil].size.height;
+    CGFloat textHeight = [self.contentLabel.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16]} context:nil].size.height;
     maxSize.height = ceil(textHeight);
     self.contentLabel.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.headImageView.frame)+BLANK_OFFSET, maxSize.width, maxSize.height);
     
@@ -96,7 +96,7 @@
 -(UILabel *)timeLabel{
     if(!_timeLabel){
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = [UIFont systemFontOfSize:12.0f];
+        _timeLabel.font = [UIFont systemFontOfSize:14];
         [self addSubview:_timeLabel];
     }
     return _timeLabel;
@@ -107,7 +107,7 @@
         _contentLabel = [[UILabel alloc] init];
         _contentLabel.numberOfLines = 0;
         _contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
-        _contentLabel.font = [UIFont systemFontOfSize:14.0f];
+        _contentLabel.font = [UIFont systemFontOfSize:16];
         [self addSubview:_contentLabel];
     }
     return _contentLabel;
