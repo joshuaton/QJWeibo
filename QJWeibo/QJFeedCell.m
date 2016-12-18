@@ -96,7 +96,7 @@
 -(UILabel *)timeLabel{
     if(!_timeLabel){
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = [UIFont systemFontOfSize:14];
+        _timeLabel.font = [UIFont systemFontOfSize:12];
         [self addSubview:_timeLabel];
     }
     return _timeLabel;
