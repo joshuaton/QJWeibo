@@ -78,7 +78,7 @@
         return;
     }
     
-    if([json[@"error_code"] integerValue] == 21327){
+    if([json[@"error_code"] integerValue] == 21327 || [json[@"error_code"] integerValue] == 21332){
         QJLoginViewController *vc = [[QJLoginViewController alloc] init];
         [self presentViewController: vc animated:YES completion:nil];
         return;
