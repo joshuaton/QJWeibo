@@ -1,10 +1,12 @@
 PODS:
+  - MJRefresh (3.1.12)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
   - WeiboSDK (3.1.4)
 
 DEPENDENCIES:
+  - MJRefresh
   - SDWebImage (~> 3.8)
   - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
 
@@ -18,9 +20,10 @@ CHECKOUT OPTIONS:
     :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 SPEC CHECKSUMS:
+  MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
 
-PODFILE CHECKSUM: 8423d19293904861f45c20edce93afe3ef3004a2
+PODFILE CHECKSUM: 53cb80404eb424842c1827ebc59cc1d824216169
 
 COCOAPODS: 1.1.1

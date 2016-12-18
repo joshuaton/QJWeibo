@@ -10,12 +10,13 @@
 #import "QJLoginViewController.h"
 #import "QJFeedCell.h"
 #import "QJFeedCellModel.h"
+#import "MJRefresh.h"
 
 @interface QJIndexViewController() <WBHttpRequestDelegate, UITableViewDelegate, UITableViewDataSource>
 
-@property (nonatomic, copy) NSString *accessToken;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) NSMutableArray *feedsModel;
+@property (nonatomic, assign) NSInteger maxId;
 
 @end
 
@@ -25,43 +26,49 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]){
+        QJLoginViewController *vc = [[QJLoginViewController alloc] init];
+        [self presentViewController: vc animated:YES completion:nil];
+        return;
+    }
+    
     self.tableView = [[UITableView alloc] init];
     self.tableView.frame = CGRectMake(0, STATUS_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_BAR_HEIGHT);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView registerClass:[QJFeedCell class] forCellReuseIdentifier:QJFeedCellReuseId];
+    self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self queryFriendFeeds:0];
+    }];
+    self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self queryFriendFeeds:self.maxId-1];
+    }];
     [self.view addSubview:self.tableView];
     
-    self.feedsModel = [[NSMutableArray alloc] init];
-}
+    [self queryFriendFeeds:0];
 
-- (void)viewDidAppear:(BOOL)animated{
-    [super viewDidAppear:animated];
     
-    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString *accessToken = [userDefaults objectForKey:@"accessToken"];
-    self.accessToken = accessToken;
-    if(accessToken){
-        [self queryFriendFeeds];
-    }else{
-        QJLoginViewController *vc = [[QJLoginViewController alloc] init];
-        [self presentViewController: vc animated:YES completion:nil];
-    }
 }
 
 #pragma mark - data
-- (void)queryFriendFeeds{
-    
+- (void)queryFriendFeeds:(NSInteger)maxId{
+    if(maxId == 0){
+        self.feedsModel = [[NSMutableArray alloc] init];
+    }
     
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:2];
-    [params setObject:self.accessToken forKey:@"access_token"];
+    params[@"access_token"] = [[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"];
+    params[@"max_id"] = [NSString stringWithFormat:@"%ld", (long)maxId];
     
     [WBHttpRequest requestWithURL:@"https://api.weibo.com/2/statuses/friends_timeline.json" httpMethod:@"GET" params:params delegate:self withTag:@"getUserInfo"];
     
 }
 
 - (void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result{
+    [self.tableView.mj_header endRefreshing];
+    [self.tableView.mj_footer endRefreshing];
+    
     NSError *error;
     NSData  *data = [result dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&error];
@@ -71,11 +78,19 @@
         return;
     }
     
+    if([json[@"error_code"] integerValue] == 21327){
+        QJLoginViewController *vc = [[QJLoginViewController alloc] init];
+        [self presentViewController: vc animated:YES completion:nil];
+        return;
+    }
+    
     NSMutableArray *feeds = [json objectForKey:@"statuses"];
     
     for(int i=0; i<[feeds count]; i++){
         QJFeedCellModel *cellModel = [[QJFeedCellModel alloc] init];
-        cellModel.feed = [feeds objectAtIndex:i];
+        NSDictionary *feed = feeds[i];
+        self.maxId = [feed[@"id"] integerValue];
+        cellModel.feed = feed;
         [self.feedsModel addObject:cellModel];
     }
     

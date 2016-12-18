@@ -70,7 +70,7 @@
     
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:feed[@"user"][@"profile_image_url"]] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     self.nameLabel.text = feed[@"user"][@"name"];
-    self.timeLabel.text = feed[@"created_at"];
+    self.timeLabel.text = [self formatDateStr:feed[@"created_at"]];
     self.contentLabel.text = [feed objectForKey:@"text"];
     [self.imageCollectionView reloadData];
     
@@ -173,6 +173,16 @@
 //设置每个item垂直间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return HALF_BLANK_OFFSET;
+}
+
+#pragma mark - tools
+-(NSString *)formatDateStr:(NSString *)str{
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
+    fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
+    NSDate *creatDate = [fmt dateFromString:str];
+    fmt.dateFormat = @"yyyy-MM-dd HH:mm";
+    return [fmt stringFromDate:creatDate];
 }
 
 

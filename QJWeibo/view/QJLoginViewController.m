@@ -36,7 +36,9 @@ App Secret：ace731305639467357b1bea6317db3fb
     [self.loginButton setTitle:@"登录" forState:UIControlStateNormal];
     [self.loginButton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [self.loginButton setBackgroundColor:[UIColor redColor]];
-    self.loginButton.frame = CGRectMake(100, 100, 200, 100);
+    float buttonWidth = 200;
+    float buttonHeight = 100;
+    self.loginButton.frame = CGRectMake((SCREEN_WIDTH-buttonWidth)/2, 100, buttonWidth, buttonHeight);
     [self.loginButton addTarget:self action:@selector(loginButtonAction:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:self.loginButton];
 }
