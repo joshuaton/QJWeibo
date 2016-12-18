@@ -26,12 +26,6 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
-    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]){
-        QJLoginViewController *vc = [[QJLoginViewController alloc] init];
-        [self presentViewController: vc animated:YES completion:nil];
-        return;
-    }
-    
     self.tableView = [[UITableView alloc] init];
     self.tableView.frame = CGRectMake(0, STATUS_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_BAR_HEIGHT);
     self.tableView.delegate = self;
@@ -47,8 +41,20 @@
     [self.view addSubview:self.tableView];
     
     [self queryFriendFeeds:0];
-
     
+}
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:@"accessToken"]){
+        QJLoginViewController *vc = [[QJLoginViewController alloc] init];
+        [self presentViewController: vc animated:YES completion:nil];
+        return;
+    }
+    
+    
+
 }
 
 #pragma mark - data

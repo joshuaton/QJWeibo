@@ -17,7 +17,7 @@
 @property (nonatomic, strong) UIImageView *headImageView;
 @property (nonatomic, strong) UILabel *nameLabel;
 @property (nonatomic, strong) UILabel *timeLabel;
-@property (nonatomic, strong) UILabel *contentLabel;
+@property (nonatomic, strong) UITextView *contentTextView;
 @property (nonatomic, strong) UICollectionView *imageCollectionView;
 @property (nonatomic, strong) UIView *seperatorView;
 
@@ -31,7 +31,7 @@
         [self headImageView];
         [self nameLabel];
         [self timeLabel];
-        [self contentLabel];
+        [self contentTextView];
         [self imageCollectionView];
         [self seperatorView];
     }
@@ -49,16 +49,16 @@
     self.timeLabel.frame = CGRectMake(self.nameLabel.frame.origin.x, CGRectGetMaxY(self.nameLabel.frame), self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     
     CGSize maxSize = CGSizeMake(SCREEN_WIDTH - BLANK_OFFSET * 2, MAXFLOAT);
-    CGFloat textHeight = [self.contentLabel.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16]} context:nil].size.height;
+    CGFloat textHeight = [self.contentTextView.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16]} context:nil].size.height;
     maxSize.height = ceil(textHeight);
-    self.contentLabel.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.headImageView.frame)+BLANK_OFFSET, maxSize.width, maxSize.height);
+    self.contentTextView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.headImageView.frame)+BLANK_OFFSET, maxSize.width, maxSize.height);
     
     float imageRowNum = 0;
     if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
         imageRowNum = ([self.feed[@"pic_urls"] count]-1)/3+1;
     }
     float singleRowHeight = (SCREEN_WIDTH-BLANK_OFFSET*2)/3;
-    self.imageCollectionView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.contentLabel.frame)+BLANK_OFFSET, SCREEN_WIDTH-BLANK_OFFSET*2, imageRowNum*singleRowHeight);
+    self.imageCollectionView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.contentTextView.frame)+BLANK_OFFSET, SCREEN_WIDTH-BLANK_OFFSET*2, imageRowNum*singleRowHeight);
     
     self.seperatorView.frame = CGRectMake(0, self.frame.size.height-ONE_PIXEL, SCREEN_WIDTH, ONE_PIXEL);
 }
@@ -71,7 +71,7 @@
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:feed[@"user"][@"profile_image_url"]] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     self.nameLabel.text = feed[@"user"][@"name"];
     self.timeLabel.text = [self formatDateStr:feed[@"created_at"]];
-    self.contentLabel.text = [feed objectForKey:@"text"];
+    self.contentTextView.text = feed[@"text"];
     [self.imageCollectionView reloadData];
     
 }
@@ -87,7 +87,7 @@
 -(UILabel *)nameLabel{
     if(!_nameLabel){
         _nameLabel = [[UILabel alloc] init];
-        _nameLabel.font = [UIFont systemFontOfSize:12.0f];
+        _nameLabel.font = [UIFont systemFontOfSize:14];
         [self addSubview:_nameLabel];
     }
     return _nameLabel;
@@ -96,21 +96,22 @@
 -(UILabel *)timeLabel{
     if(!_timeLabel){
         _timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = [UIFont systemFontOfSize:12];
+        _timeLabel.font = [UIFont systemFontOfSize:14];
         [self addSubview:_timeLabel];
     }
     return _timeLabel;
 }
 
--(UILabel *)contentLabel{
-    if(!_contentLabel){
-        _contentLabel = [[UILabel alloc] init];
-        _contentLabel.numberOfLines = 0;
-        _contentLabel.lineBreakMode = NSLineBreakByCharWrapping;
-        _contentLabel.font = [UIFont systemFontOfSize:16];
-        [self addSubview:_contentLabel];
+-(UITextView *)contentTextView{
+    if(!_contentTextView){
+        _contentTextView = [[UITextView alloc] init];
+        _contentTextView.font = [UIFont systemFontOfSize:16];
+        _contentTextView.editable = NO;
+        _contentTextView.dataDetectorTypes = UIDataDetectorTypeAll;
+        [_contentTextView setTextContainerInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        [self addSubview:_contentTextView];
     }
-    return _contentLabel;
+    return _contentTextView;
 }
 
 -(UICollectionView *)imageCollectionView{

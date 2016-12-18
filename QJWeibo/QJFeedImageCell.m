@@ -32,7 +32,9 @@
 #pragma mark - getter & setter
 
 -(void)setImageUrl:(NSString *)imageUrl{
+    imageUrl = [imageUrl stringByReplacingOccurrencesOfString:@"/thumbnail/" withString:@"/bmiddle/"];
     _imageUrl = imageUrl;
+    
     [self.imageView sd_setImageWithURL:[NSURL URLWithString:_imageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
 }
 
