@@ -48,10 +48,9 @@
     [self.timeLabel sizeToFit];
     self.timeLabel.frame = CGRectMake(self.nameLabel.frame.origin.x, CGRectGetMaxY(self.nameLabel.frame), self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     
-    CGSize maxSize = CGSizeMake(SCREEN_WIDTH - BLANK_OFFSET * 2, MAXFLOAT);
-    CGFloat textHeight = [self.contentTextView.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName : [UIFont systemFontOfSize:16]} context:nil].size.height;
-    maxSize.height = ceil(textHeight);
-    self.contentTextView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.headImageView.frame)+BLANK_OFFSET, maxSize.width, maxSize.height);
+    float maxWidth = SCREEN_WIDTH - BLANK_OFFSET * 2;
+    CGSize sizeToFit = [self.contentTextView sizeThatFits:CGSizeMake(maxWidth, MAXFLOAT)];
+    self.contentTextView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.headImageView.frame)+BLANK_OFFSET, maxWidth, sizeToFit.height);
     
     float imageRowNum = 0;
     if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
@@ -107,7 +106,8 @@
         _contentTextView = [[UITextView alloc] init];
         _contentTextView.font = [UIFont systemFontOfSize:16];
         _contentTextView.editable = NO;
-        _contentTextView.dataDetectorTypes = UIDataDetectorTypeAll;
+        _contentTextView.dataDetectorTypes = UIDataDetectorTypeLink;
+        _contentTextView.scrollEnabled = NO;
         [_contentTextView setTextContainerInset:UIEdgeInsetsMake(0, 0, 0, 0)];
         [self addSubview:_contentTextView];
     }
