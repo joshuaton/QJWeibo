@@ -93,10 +93,10 @@
 		FB43219F1DEDBCA800CE74C5 /* view */ = {
 			isa = PBXGroup;
 			children = (
+				FB4321A11DEDBCC600CE74C5 /* QJIndexViewController.h */,
 				FBE021B51E082FA50053A378 /* QJIndexViewController.m */,
 				FB4321A01DEDBCC600CE74C5 /* QJLoginViewController.h */,
 				FB4321A21DEDBCC600CE74C5 /* QJLoginViewController.m */,
-				FB4321A11DEDBCC600CE74C5 /* QJIndexViewController.h */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -151,12 +151,12 @@
 		FBD8FEA91DF3F3AB0051F8C8 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				FBE021B71E082FB00053A378 /* QJFeedCell.m */,
-				FBE021B81E082FB00053A378 /* QJFeedCellModel.m */,
-				FBE021B91E082FB00053A378 /* QJFeedImageCell.m */,
-				FBE021BA1E082FB00053A378 /* QJFeedImageCell.h */,
-				FBE021BB1E082FB00053A378 /* QJFeedCellModel.h */,
 				FBD8FEAA1DF3F3E20051F8C8 /* QJFeedCell.h */,
+				FBE021B71E082FB00053A378 /* QJFeedCell.m */,
+				FBE021BB1E082FB00053A378 /* QJFeedCellModel.h */,
+				FBE021B81E082FB00053A378 /* QJFeedCellModel.m */,
+				FBE021BA1E082FB00053A378 /* QJFeedImageCell.h */,
+				FBE021B91E082FB00053A378 /* QJFeedImageCell.m */,
 			);
 			name = cell;
 			sourceTree = "<group>";
