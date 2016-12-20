@@ -95,7 +95,6 @@
     for(int i=0; i<[feeds count]; i++){
         QJFeedCellModel *cellModel = [[QJFeedCellModel alloc] init];
         NSDictionary *feed = feeds[i];
-        NSLog(@"feed %@", feed);
         self.maxId = [feed[@"id"] integerValue];
         cellModel.feed = feed;
         [self.feedsModel addObject:cellModel];

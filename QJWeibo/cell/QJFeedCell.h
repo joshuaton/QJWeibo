@@ -7,7 +7,6 @@
 //
 
 #define QJFeedCellReuseId @"QJFeedCellReuseId"
-#define HEAD_IMAGEVIEW_WIDTH 30
 
 @interface QJFeedCell : UITableViewCell
 

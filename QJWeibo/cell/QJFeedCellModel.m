@@ -7,6 +7,7 @@
 //
 
 #import "QJFeedCellModel.h"
+#import "FeedView.h"
 
 @interface QJFeedCellModel()
 
@@ -18,15 +19,24 @@
 
 -(CGFloat)cellHeight{
     
+    float feedHeight = [self calFeedHeight:self.feed];
+    float reTweetFeedHeight = 0;
+    if(self.feed[@"retweeted_status"]){
+        reTweetFeedHeight = [self calFeedHeight:self.feed[@"retweeted_status"]];
+    }
+    return feedHeight + reTweetFeedHeight;
+}
+
+-(CGFloat)calFeedHeight:(NSDictionary *)feed{
     float textHeight = 0;
     CGSize maxSize = CGSizeMake(SCREEN_WIDTH-2*BLANK_OFFSET, MAXFLOAT);
-    self.textView.text = self.feed[@"text"];
+    self.textView.text = feed[@"text"];
     CGSize sizeToFit = [self.textView sizeThatFits:maxSize];
     textHeight = sizeToFit.height;
     
     float imageRowNum = 0;
-    if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
-        imageRowNum = ([self.feed[@"pic_urls"] count]-1)/3+1;
+    if(feed[@"pic_urls"] && [feed[@"pic_urls"] count] > 0){
+        imageRowNum = ([feed[@"pic_urls"] count]-1)/3+1;
     }
     float singleRowHeight = (SCREEN_WIDTH-BLANK_OFFSET*2)/3;
     float imageCollectionViewHeight = imageRowNum*singleRowHeight;
