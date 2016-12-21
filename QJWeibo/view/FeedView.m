@@ -28,12 +28,7 @@
 -(id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self){
-//        [self headImageView];
-//        [self nameLabel];
-//        [self timeLabel];
-//        [self contentTextView];
-//        [self imageCollectionView];
-//        [self seperatorView];
+        
     }
     return self;
 }
@@ -49,7 +44,7 @@
     [self.timeLabel sizeToFit];
     self.timeLabel.frame = CGRectMake(self.nameLabel.frame.origin.x, CGRectGetMaxY(self.nameLabel.frame), self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     
-    float maxWidth = SCREEN_WIDTH - BLANK_OFFSET * 2;
+    float maxWidth = self.frame.size.width - BLANK_OFFSET * 2;
     CGSize sizeToFit = [self.contentTextView sizeThatFits:CGSizeMake(maxWidth, MAXFLOAT)];
     self.contentTextView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.headImageView.frame)+BLANK_OFFSET, maxWidth, sizeToFit.height);
     
@@ -57,8 +52,8 @@
     if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
         imageRowNum = ([self.feed[@"pic_urls"] count]-1)/3+1;
     }
-    float singleRowHeight = (SCREEN_WIDTH-BLANK_OFFSET*2)/3;
-    self.imageCollectionView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.contentTextView.frame)+BLANK_OFFSET, SCREEN_WIDTH-BLANK_OFFSET*2, imageRowNum*singleRowHeight);
+    float singleRowHeight = (self.frame.size.width-BLANK_OFFSET*2)/3;
+    self.imageCollectionView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.contentTextView.frame)+BLANK_OFFSET, self.frame.size.width-BLANK_OFFSET*2, imageRowNum*singleRowHeight);
     
     
     self.viewHeight = CGRectGetMaxY(self.imageCollectionView.frame);
@@ -111,6 +106,11 @@
         _contentTextView.dataDetectorTypes = UIDataDetectorTypeLink;
         _contentTextView.scrollEnabled = NO;
         [_contentTextView setTextContainerInset:UIEdgeInsetsMake(0, 0, 0, 0)];
+        if(self.isReTweet){
+            _contentTextView.backgroundColor = [UIColor lightGrayColor];
+        }else{
+            _contentTextView.backgroundColor = [UIColor whiteColor];
+        }
         [self addSubview:_contentTextView];
     }
     return _contentTextView;
@@ -125,7 +125,11 @@
         _imageCollectionView.dataSource = self;
         _imageCollectionView.backgroundColor = [UIColor whiteColor];
         [_imageCollectionView registerClass:[QJFeedImageCell class] forCellWithReuseIdentifier:QJFeedImageCell_REUSEID];
-        
+        if(self.isReTweet){
+            _imageCollectionView.backgroundColor = [UIColor lightGrayColor];
+        }else{
+            _imageCollectionView.backgroundColor = [UIColor whiteColor];
+        }
         
         
         [self addSubview:_imageCollectionView];
@@ -150,7 +154,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    float imageWidth = (SCREEN_WIDTH-BLANK_OFFSET*2-HALF_BLANK_OFFSET*2)/3;
+    float imageWidth = (self.frame.size.width-BLANK_OFFSET*2-HALF_BLANK_OFFSET*2)/3-1;
     return CGSizeMake(imageWidth, imageWidth);
 }
 

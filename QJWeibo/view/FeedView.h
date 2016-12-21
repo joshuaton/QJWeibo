@@ -11,6 +11,8 @@
 
 @property (nonatomic, strong) NSDictionary *feed;
 
+@property (nonatomic, assign) BOOL isReTweet;
+
 @property (nonatomic, assign) CGFloat viewHeight;
 
 

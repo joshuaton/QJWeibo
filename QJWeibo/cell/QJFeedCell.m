@@ -28,15 +28,16 @@
     if(self){
         self.feedView = [[FeedView alloc] init];
         self.feedView.frame = CGRectZero;
-        [self addSubview:self.feedView];
+        [self.contentView addSubview:self.feedView];
         
         self.reTweetedFeedView = [[FeedView alloc] init];
+        self.reTweetedFeedView.isReTweet = YES;
         self.reTweetedFeedView.backgroundColor = [UIColor lightGrayColor];
-        [self addSubview:self.reTweetedFeedView];
+        [self.contentView addSubview:self.reTweetedFeedView];
         
         self.seperatorView = [[UIView alloc] init];
         self.seperatorView.backgroundColor = [UIColor lightGrayColor];
-        [self addSubview:self.seperatorView];
+        [self.contentView addSubview:self.seperatorView];
     }
     return self;
 }
@@ -53,7 +54,7 @@
     
     if(self.feedView.feed[@"retweeted_status"]){
         self.reTweetedFeedView.hidden = NO;
-        self.reTweetedFeedView.frame = CGRectMake(0, self.feedView.viewHeight, self.frame.size.width, self.frame.size.height-self.feedView.viewHeight);
+        self.reTweetedFeedView.frame = CGRectMake(BLANK_OFFSET, self.feedView.viewHeight, self.frame.size.width-BLANK_OFFSET*2, self.frame.size.height-self.feedView.viewHeight);
     }else{
         self.reTweetedFeedView.hidden = YES;
     }
