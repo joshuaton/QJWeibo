@@ -23,6 +23,7 @@
     float reTweetFeedHeight = 0;
     if(self.feed[@"retweeted_status"]){
         reTweetFeedHeight = [self calFeedHeight:self.feed[@"retweeted_status"]];
+        reTweetFeedHeight = reTweetFeedHeight - BLANK_OFFSET - HEAD_IMAGEVIEW_WIDTH;
     }
     return feedHeight + reTweetFeedHeight;
 }
@@ -43,8 +44,8 @@
     if(imageCollectionViewHeight > 0){
         imageCollectionViewHeight += BLANK_OFFSET;
     }
-    
-    return BLANK_OFFSET + HEAD_IMAGEVIEW_WIDTH + BLANK_OFFSET+ textHeight + BLANK_OFFSET + imageCollectionViewHeight;
+
+    return BLANK_OFFSET + HEAD_IMAGEVIEW_WIDTH + BLANK_OFFSET + textHeight + BLANK_OFFSET + imageCollectionViewHeight;
 }
 
 -(UITextView *)textView{

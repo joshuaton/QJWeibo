@@ -7,16 +7,13 @@
 //
 
 #import "QJFeedCell.h"
-#import <SDWebImage/UIImageView+WebCache.h>
 #import "QJFeedImageCell.h"
 #import "FeedView.h"
 
 
 @interface FeedView() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
-@property (nonatomic, strong) UIImageView *headImageView;
-@property (nonatomic, strong) UILabel *nameLabel;
-@property (nonatomic, strong) UILabel *timeLabel;
+
 @property (nonatomic, strong) UITextView *contentTextView;
 @property (nonatomic, strong) UICollectionView *imageCollectionView;
 
@@ -36,17 +33,15 @@
 -(void)layoutSubviews{
     [super layoutSubviews];
     
-    self.headImageView.frame = CGRectMake(BLANK_OFFSET, BLANK_OFFSET, HEAD_IMAGEVIEW_WIDTH, HEAD_IMAGEVIEW_WIDTH);
-    
-    [self.nameLabel sizeToFit];
-    self.nameLabel.frame = CGRectMake(CGRectGetMaxX(self.headImageView.frame)+BLANK_OFFSET, self.headImageView.frame.origin.y, self.nameLabel.frame.size.width, self.nameLabel.frame.size.height);
-    
-    [self.timeLabel sizeToFit];
-    self.timeLabel.frame = CGRectMake(self.nameLabel.frame.origin.x, CGRectGetMaxY(self.nameLabel.frame), self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
+    if(!self.isReTweet){
+        self.contentTextView.text = self.feed[@"text"];
+    }else{
+        self.contentTextView.text = [NSString stringWithFormat:@"@%@:%@", self.feed[@"user"][@"name"], self.feed[@"text"]];
+    }
     
     float maxWidth = self.frame.size.width - BLANK_OFFSET * 2;
     CGSize sizeToFit = [self.contentTextView sizeThatFits:CGSizeMake(maxWidth, MAXFLOAT)];
-    self.contentTextView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.headImageView.frame)+BLANK_OFFSET, maxWidth, sizeToFit.height);
+    self.contentTextView.frame = CGRectMake(BLANK_OFFSET, BLANK_OFFSET, maxWidth, sizeToFit.height);
     
     float imageRowNum = 0;
     if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
@@ -63,40 +58,13 @@
 -(void)setFeed:(NSDictionary *)feed{
     _feed = feed;
     
-    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:feed[@"user"][@"profile_image_url"]] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
-    self.nameLabel.text = feed[@"user"][@"name"];
-    self.timeLabel.text = [self formatDateStr:feed[@"created_at"]];
-    self.contentTextView.text = feed[@"text"];
+    
     [self.imageCollectionView reloadData];
     
 }
 
 
--(UIImageView *)headImageView{
-    if(!_headImageView){
-        _headImageView = [[UIImageView alloc] init];
-        [self addSubview:_headImageView];
-    }
-    return _headImageView;
-}
 
--(UILabel *)nameLabel{
-    if(!_nameLabel){
-        _nameLabel = [[UILabel alloc] init];
-        _nameLabel.font = [UIFont systemFontOfSize:14];
-        [self addSubview:_nameLabel];
-    }
-    return _nameLabel;
-}
-
--(UILabel *)timeLabel{
-    if(!_timeLabel){
-        _timeLabel = [[UILabel alloc] init];
-        _timeLabel.font = [UIFont systemFontOfSize:14];
-        [self addSubview:_timeLabel];
-    }
-    return _timeLabel;
-}
 
 -(UITextView *)contentTextView{
     if(!_contentTextView){
@@ -107,7 +75,7 @@
         _contentTextView.scrollEnabled = NO;
         [_contentTextView setTextContainerInset:UIEdgeInsetsMake(0, 0, 0, 0)];
         if(self.isReTweet){
-            _contentTextView.backgroundColor = [UIColor lightGrayColor];
+            _contentTextView.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
         }else{
             _contentTextView.backgroundColor = [UIColor whiteColor];
         }
@@ -126,7 +94,7 @@
         _imageCollectionView.backgroundColor = [UIColor whiteColor];
         [_imageCollectionView registerClass:[QJFeedImageCell class] forCellWithReuseIdentifier:QJFeedImageCell_REUSEID];
         if(self.isReTweet){
-            _imageCollectionView.backgroundColor = [UIColor lightGrayColor];
+            _imageCollectionView.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
         }else{
             _imageCollectionView.backgroundColor = [UIColor whiteColor];
         }
@@ -173,14 +141,6 @@
     return HALF_BLANK_OFFSET;
 }
 
-#pragma mark - tools
--(NSString *)formatDateStr:(NSString *)str{
-    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
-    fmt.dateFormat = @"EEE MMM dd HH:mm:ss Z yyyy";
-    fmt.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US"];
-    NSDate *creatDate = [fmt dateFromString:str];
-    fmt.dateFormat = @"yyyy-MM-dd HH:mm";
-    return [fmt stringFromDate:creatDate];
-}
+
 
 @end
