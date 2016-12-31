@@ -16,6 +16,9 @@
 
 @interface AppDelegate ()
 
+@property (nonatomic, strong) UINavigationController *navigationController;
+@property (nonatomic, strong) QJIndexViewController *indexViewController;
+
 @end
 
 @implementation AppDelegate
@@ -29,8 +32,13 @@
     
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    QJIndexViewController* vc = [[QJIndexViewController alloc] init];
-    self.window.rootViewController = vc;
+//    QJIndexViewController* vc = [[QJIndexViewController alloc] init];
+//    self.window.rootViewController = vc;
+//    [self.window makeKeyAndVisible];
+    
+    self.indexViewController = [[QJIndexViewController alloc] init];
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:self.indexViewController];
+    self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
     return YES;

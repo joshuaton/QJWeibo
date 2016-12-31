@@ -9,7 +9,9 @@
 #import "QJFeedCell.h"
 #import "QJFeedImageCell.h"
 #import "FeedView.h"
-
+#import "NYTPhotosViewController.h"
+#import "QJPhoto.h"
+#import "SDWebImageManager.h"
 
 @interface FeedView() <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -139,6 +141,41 @@
 //设置每个item垂直间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
     return HALF_BLANK_OFFSET;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    NSMutableArray<QJPhoto*> *photos = [[NSMutableArray alloc] init];
+    for(int i=0; i<[self.feed[@"pic_urls"] count]; i++){
+        QJPhoto *photo = [[QJPhoto alloc] init];
+        [photos addObject:photo];
+    }
+    
+    __block int doneNum = 0;
+    for(int i=0; i<[self.feed[@"pic_urls"] count]; i++){
+        
+        NSString *thumbUrl = self.feed[@"pic_urls"][i][@"thumbnail_pic"];
+        NSString *largeUrl = [thumbUrl stringByReplacingOccurrencesOfString:@"/thumbnail/" withString:@"/bmiddle/"];
+        NSURL *url = [NSURL URLWithString:largeUrl];
+        
+        [[SDWebImageManager sharedManager] downloadImageWithURL:url options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+            // 下载进度block
+        } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, BOOL finished, NSURL *imageURL) {
+            // 下载完成block
+            photos[i].image = image;
+            doneNum++;
+            if(doneNum == [self.feed[@"pic_urls"] count]){
+                NYTPhotosViewController *photosViewController = [[NYTPhotosViewController alloc] initWithPhotos:photos];
+                UIViewController *vc = self.window.rootViewController;
+                [vc presentViewController:photosViewController animated:YES completion:nil];
+            }
+        }];
+    }
+    
+    
+    
+    
+    
 }
 
 

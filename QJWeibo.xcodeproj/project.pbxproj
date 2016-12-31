@@ -15,6 +15,7 @@
 		FB43219D1DEB22A600CE74C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB43219C1DEB22A600CE74C5 /* main.m */; };
 		FB4321A31DEDBCC600CE74C5 /* QJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4321A21DEDBCC600CE74C5 /* QJLoginViewController.m */; };
 		FB4321A71DEDBDCF00CE74C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4321A61DEDBDCF00CE74C5 /* UIKit.framework */; };
+		FB4F0BFF1E17EEA700B3C9C3 /* QJPhoto.m in Sources */ = {isa = PBXBuildFile; fileRef = FB4F0BFE1E17EEA700B3C9C3 /* QJPhoto.m */; };
 		FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB72F4171DE9CDCA00996E06 /* AppDelegate.m */; };
 		FB72F4201DE9CDCA00996E06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */; };
 		FB82D18D1E059C3800142483 /* Default-2208.png in Resources */ = {isa = PBXBuildFile; fileRef = FB82D18B1E059C3800142483 /* Default-2208.png */; };
@@ -40,6 +41,8 @@
 		FB4321A11DEDBCC600CE74C5 /* QJIndexViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QJIndexViewController.h; path = view/QJIndexViewController.h; sourceTree = "<group>"; };
 		FB4321A21DEDBCC600CE74C5 /* QJLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QJLoginViewController.m; path = view/QJLoginViewController.m; sourceTree = "<group>"; };
 		FB4321A61DEDBDCF00CE74C5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		FB4F0BFD1E17EE9400B3C9C3 /* QJPhoto.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QJPhoto.h; path = model/QJPhoto.h; sourceTree = "<group>"; };
+		FB4F0BFE1E17EEA700B3C9C3 /* QJPhoto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QJPhoto.m; path = model/QJPhoto.m; sourceTree = "<group>"; };
 		FB72F4101DE9CDCA00996E06 /* QJWeibo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QJWeibo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB72F4161DE9CDCA00996E06 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FB72F4171DE9CDCA00996E06 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -47,7 +50,7 @@
 		FB72F4241DE9CDCA00996E06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB82D18B1E059C3800142483 /* Default-2208.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-2208.png"; path = "Supporting Files/Default-2208.png"; sourceTree = "<group>"; };
 		FB82D18C1E059C3800142483 /* Default-1334.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-1334.png"; path = "Supporting Files/Default-1334.png"; sourceTree = "<group>"; };
-		FB9BBDCF1DF71D40009E3257 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		FB9BBDCF1DF71D40009E3257 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		FBD8FEAA1DF3F3E20051F8C8 /* QJFeedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QJFeedCell.h; path = cell/QJFeedCell.h; sourceTree = "<group>"; };
 		FBD8FEAE1DF6F8050051F8C8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FBE021B51E082FA50053A378 /* QJIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QJIndexViewController.m; path = view/QJIndexViewController.m; sourceTree = "<group>"; };
@@ -106,6 +109,15 @@
 			name = view;
 			sourceTree = "<group>";
 		};
+		FB4F0BFC1E17EE7900B3C9C3 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				FB4F0BFD1E17EE9400B3C9C3 /* QJPhoto.h */,
+				FB4F0BFE1E17EEA700B3C9C3 /* QJPhoto.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		FB72F4071DE9CDCA00996E06 = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +140,7 @@
 		FB72F4121DE9CDCA00996E06 /* QJWeibo */ = {
 			isa = PBXGroup;
 			children = (
+				FB4F0BFC1E17EE7900B3C9C3 /* model */,
 				FBD8FEA91DF3F3AB0051F8C8 /* cell */,
 				FB43219F1DEDBCA800CE74C5 /* view */,
 				FB72F4161DE9CDCA00996E06 /* AppDelegate.h */,
@@ -301,6 +314,7 @@
 				FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */,
 				FBE021BD1E082FB00053A378 /* QJFeedCellModel.m in Sources */,
 				FB43219D1DEB22A600CE74C5 /* main.m in Sources */,
+				FB4F0BFF1E17EEA700B3C9C3 /* QJPhoto.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

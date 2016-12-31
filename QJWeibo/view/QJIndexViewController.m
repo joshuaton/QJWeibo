@@ -26,8 +26,10 @@
 - (void)viewDidLoad{
     [super viewDidLoad];
     
+    self.title = @"首页";
+    
     self.tableView = [[UITableView alloc] init];
-    self.tableView.frame = CGRectMake(0, STATUS_BAR_HEIGHT, SCREEN_WIDTH, SCREEN_HEIGHT-STATUS_BAR_HEIGHT);
+    self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
