@@ -32,16 +32,14 @@
     return self;
 }
 
--(void)layoutSubviews{
-    [super layoutSubviews];
-    
+-(void)setupView{
     if(!self.isReTweet){
         self.contentTextView.text = self.feed[@"text"];
     }else{
         self.contentTextView.text = [NSString stringWithFormat:@"@%@:%@", self.feed[@"user"][@"name"], self.feed[@"text"]];
     }
     
-    float maxWidth = self.frame.size.width - BLANK_OFFSET * 2;
+    float maxWidth = SCREEN_WIDTH - BLANK_OFFSET * 2;
     CGSize sizeToFit = [self.contentTextView sizeThatFits:CGSizeMake(maxWidth, MAXFLOAT)];
     self.contentTextView.frame = CGRectMake(BLANK_OFFSET, BLANK_OFFSET, maxWidth, sizeToFit.height);
     
@@ -49,8 +47,8 @@
     if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
         imageRowNum = ([self.feed[@"pic_urls"] count]-1)/3+1;
     }
-    float singleRowHeight = (self.frame.size.width-BLANK_OFFSET*2)/3;
-    self.imageCollectionView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.contentTextView.frame)+BLANK_OFFSET, self.frame.size.width-BLANK_OFFSET*2, imageRowNum*singleRowHeight);
+    float singleRowHeight = (SCREEN_WIDTH-BLANK_OFFSET*2)/3;
+    self.imageCollectionView.frame = CGRectMake(BLANK_OFFSET, CGRectGetMaxY(self.contentTextView.frame)+BLANK_OFFSET, SCREEN_WIDTH-BLANK_OFFSET*2, imageRowNum*singleRowHeight);
     
     
     self.viewHeight = CGRectGetMaxY(self.imageCollectionView.frame);
@@ -62,6 +60,8 @@
     
     
     [self.imageCollectionView reloadData];
+    
+    [self setupView];
     
 }
 
@@ -124,7 +124,7 @@
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
-    float imageWidth = (self.frame.size.width-BLANK_OFFSET*2-HALF_BLANK_OFFSET*2)/3-1;
+    float imageWidth = (SCREEN_WIDTH-BLANK_OFFSET*2-HALF_BLANK_OFFSET*2)/3-1;
     return CGSizeMake(imageWidth, imageWidth);
 }
 

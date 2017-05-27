@@ -11,5 +11,6 @@
 @interface QJFeedCell : UITableViewCell
 
 @property (nonatomic, strong) NSDictionary *feed;
+@property (nonatomic, assign) CGFloat cellHeight;
 
 @end

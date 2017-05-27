@@ -21,7 +21,6 @@
 
 @property (nonatomic, strong) FeedView *feedView;
 @property (nonatomic, strong) FeedView *reTweetedFeedView;
-@property (nonatomic, strong) UIView *seperatorView;
 
 @end
 
@@ -41,16 +40,11 @@
         self.reTweetedFeedView.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
         [self.contentView addSubview:self.reTweetedFeedView];
         
-        self.seperatorView = [[UIView alloc] init];
-        self.seperatorView.backgroundColor = [UIColor lightGrayColor];
-        [self.contentView addSubview:self.seperatorView];
     }
     return self;
 }
 
--(void)layoutSubviews{
-    [super layoutSubviews];
-    
+-(void)setupView{
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:self.feed[@"user"][@"profile_image_url"]] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
     self.nameLabel.text = self.feed[@"user"][@"name"];
     self.timeLabel.text = [self formatDateStr:self.feed[@"created_at"]];
@@ -62,22 +56,23 @@
     
     [self.timeLabel sizeToFit];
     self.timeLabel.frame = CGRectMake(self.nameLabel.frame.origin.x, CGRectGetMaxY(self.nameLabel.frame), self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
-
-    self.feedView.frame = CGRectMake(0, CGRectGetMaxY(self.headImageView.frame), self.frame.size.width, self.frame.size.height);
-    [self.feedView layoutSubviews];
-    CGRect frame = self.feedView.frame;
-    frame.size.height = self.feedView.viewHeight;
-    self.feedView.frame = frame;
+    
+    self.feedView.frame = CGRectMake(0, CGRectGetMaxY(self.headImageView.frame), SCREEN_WIDTH, self.feedView.viewHeight);
     
     
     if(self.feedView.feed[@"retweeted_status"]){
         self.reTweetedFeedView.hidden = NO;
-        self.reTweetedFeedView.frame = CGRectMake(0, CGRectGetMaxY(self.feedView.frame), self.frame.size.width, self.frame.size.height-CGRectGetMaxY(self.feedView.frame));
+        self.reTweetedFeedView.frame = CGRectMake(0, CGRectGetMaxY(self.feedView.frame), SCREEN_WIDTH, self.reTweetedFeedView.viewHeight);
+        self.cellHeight = CGRectGetMaxY(self.reTweetedFeedView.frame)+BLANK_OFFSET;
+
+        
     }else{
         self.reTweetedFeedView.hidden = YES;
+        self.cellHeight = CGRectGetMaxY(self.feedView.frame)+BLANK_OFFSET;
+
     }
     
-    self.seperatorView.frame = CGRectMake(0, self.frame.size.height-ONE_PIXEL, SCREEN_WIDTH, ONE_PIXEL);
+    
 }
 
 -(void)setFeed:(NSDictionary *)feed{
@@ -87,6 +82,8 @@
     if(self.feedView.feed[@"retweeted_status"]){
         self.reTweetedFeedView.feed = self.feedView.feed[@"retweeted_status"];
     }
+    
+    [self setupView];
     
 }
 

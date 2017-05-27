@@ -9,13 +9,12 @@
 #import "WBHttpRequest.h"
 #import "QJLoginViewController.h"
 #import "QJFeedCell.h"
-#import "QJFeedCellModel.h"
 #import "MJRefresh.h"
 
 @interface QJIndexViewController() <WBHttpRequestDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *tableView;
-@property (nonatomic, strong) NSMutableArray *feedsModel;
+@property (nonatomic, strong) NSMutableArray *feeds;
 @property (nonatomic, assign) NSInteger maxId;
 
 @end
@@ -32,7 +31,6 @@
     self.tableView.frame = CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    [self.tableView setSeparatorStyle:UITableViewCellSeparatorStyleNone];
     [self.tableView registerClass:[QJFeedCell class] forCellReuseIdentifier:QJFeedCellReuseId];
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self queryFriendFeeds:0];
@@ -62,7 +60,7 @@
 #pragma mark - data
 - (void)queryFriendFeeds:(NSInteger)maxId{
     if(maxId == 0){
-        self.feedsModel = [[NSMutableArray alloc] init];
+        self.feeds = [[NSMutableArray alloc] init];
     }
     
     NSMutableDictionary *params = [NSMutableDictionary dictionaryWithCapacity:2];
@@ -95,11 +93,9 @@
     NSMutableArray *feeds = [json objectForKey:@"statuses"];
     
     for(int i=0; i<[feeds count]; i++){
-        QJFeedCellModel *cellModel = [[QJFeedCellModel alloc] init];
         NSDictionary *feed = feeds[i];
         self.maxId = [feed[@"id"] integerValue];
-        cellModel.feed = feed;
-        [self.feedsModel addObject:cellModel];
+        [self.feeds addObject:feed];
     }
     
     [self.tableView reloadData];
@@ -109,22 +105,21 @@
 
 #pragma mark - tableview delegate
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [self.feedsModel count];
+    return [self.feeds count];
 }
 
 - (QJFeedCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
     QJFeedCell *cell = (QJFeedCell *)[tableView dequeueReusableCellWithIdentifier:QJFeedCellReuseId forIndexPath:indexPath];
-    [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     
-    QJFeedCellModel *cellModel = [self.feedsModel objectAtIndex:indexPath.row];
-    cell.feed = cellModel.feed;
+    cell.feed = [self.feeds objectAtIndex:indexPath.row];;
     
     return cell;
 }
 
 - (CGFloat)tableView:(nonnull UITableView *)tableView heightForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
-    QJFeedCellModel *cellModel = [self.feedsModel objectAtIndex:indexPath.row];
-    return [cellModel cellHeight];
+    QJFeedCell *cell = [tableView dequeueReusableCellWithIdentifier:QJFeedCellReuseId];
+    cell.feed = [self.feeds objectAtIndex:indexPath.row];;
+    return cell.cellHeight;
 }
 
 - (void)tableView:(nonnull UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{

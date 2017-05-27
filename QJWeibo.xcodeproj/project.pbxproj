@@ -23,7 +23,6 @@
 		FB9BBDD01DF71D40009E3257 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = FB9BBDCF1DF71D40009E3257 /* Podfile */; };
 		FBE021B61E082FA50053A378 /* QJIndexViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE021B51E082FA50053A378 /* QJIndexViewController.m */; };
 		FBE021BC1E082FB00053A378 /* QJFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE021B71E082FB00053A378 /* QJFeedCell.m */; };
-		FBE021BD1E082FB00053A378 /* QJFeedCellModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE021B81E082FB00053A378 /* QJFeedCellModel.m */; };
 		FBE021BE1E082FB00053A378 /* QJFeedImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE021B91E082FB00053A378 /* QJFeedImageCell.m */; };
 		FBE021C11E095E360053A378 /* FeedView.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE021C01E095E360053A378 /* FeedView.m */; };
 /* End PBXBuildFile section */
@@ -55,10 +54,8 @@
 		FBD8FEAE1DF6F8050051F8C8 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FBE021B51E082FA50053A378 /* QJIndexViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QJIndexViewController.m; path = view/QJIndexViewController.m; sourceTree = "<group>"; };
 		FBE021B71E082FB00053A378 /* QJFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QJFeedCell.m; path = cell/QJFeedCell.m; sourceTree = "<group>"; };
-		FBE021B81E082FB00053A378 /* QJFeedCellModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QJFeedCellModel.m; path = cell/QJFeedCellModel.m; sourceTree = "<group>"; };
 		FBE021B91E082FB00053A378 /* QJFeedImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QJFeedImageCell.m; path = cell/QJFeedImageCell.m; sourceTree = "<group>"; };
 		FBE021BA1E082FB00053A378 /* QJFeedImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QJFeedImageCell.h; path = cell/QJFeedImageCell.h; sourceTree = "<group>"; };
-		FBE021BB1E082FB00053A378 /* QJFeedCellModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = QJFeedCellModel.h; path = cell/QJFeedCellModel.h; sourceTree = "<group>"; };
 		FBE021BF1E095E240053A378 /* FeedView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = FeedView.h; path = view/FeedView.h; sourceTree = "<group>"; };
 		FBE021C01E095E360053A378 /* FeedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FeedView.m; path = view/FeedView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,8 +168,6 @@
 			children = (
 				FBD8FEAA1DF3F3E20051F8C8 /* QJFeedCell.h */,
 				FBE021B71E082FB00053A378 /* QJFeedCell.m */,
-				FBE021BB1E082FB00053A378 /* QJFeedCellModel.h */,
-				FBE021B81E082FB00053A378 /* QJFeedCellModel.m */,
 				FBE021BA1E082FB00053A378 /* QJFeedImageCell.h */,
 				FBE021B91E082FB00053A378 /* QJFeedImageCell.m */,
 			);
@@ -312,7 +307,6 @@
 				FBE021B61E082FA50053A378 /* QJIndexViewController.m in Sources */,
 				FBE021C11E095E360053A378 /* FeedView.m in Sources */,
 				FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */,
-				FBE021BD1E082FB00053A378 /* QJFeedCellModel.m in Sources */,
 				FB43219D1DEB22A600CE74C5 /* main.m in Sources */,
 				FB4F0BFF1E17EEA700B3C9C3 /* QJPhoto.m in Sources */,
 			);
