@@ -8,9 +8,14 @@
 #import "QJFeedImageCell.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+#define ITEM_WIDTH (SCREEN_WIDTH-BLANK_OFFSET*2-HALF_BLANK_OFFSET*2)/3-1
+
 @interface QJFeedImageCell()
 
 @property (nonatomic, strong) UIImageView *imageView;
+
+@property (nonatomic, assign) BOOL isHeightCalculated;
+
 
 @end
 
@@ -19,15 +24,32 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self){
-        _imageView = [[UIImageView alloc] init];
-        _imageView.contentMode = UIViewContentModeScaleAspectFill;
-        _imageView.clipsToBounds = YES;
-        _imageView.frame = self.contentView.frame;
-        [self.contentView addSubview:_imageView];
+        self.imageView.left.equalTo(superView);
+        self.imageView.top.equalTo(superView);
+        self.imageView.right.equalTo(superView);
+        self.imageView.bottom.equalTo(superView);
+        self.imageView.width.equalTo(@(ITEM_WIDTH));
+        self.imageView.height.equalTo(@(ITEM_WIDTH));
     }
     
     return self;
 }
+
+//-(UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
+//    
+//    [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
+//    
+//    if(self.isHeightCalculated){
+//        [self setNeedsLayout];
+//        [self layoutIfNeeded];
+//        CGSize size = [self.contentView systemLayoutSizeFittingSize:layoutAttributes.size];
+//        CGRect newFrame = layoutAttributes.frame;
+//        newFrame.size.width = ceilf(size.width);
+//        layoutAttributes.frame = newFrame;
+//        self.isHeightCalculated = YES;
+//    }
+//    return layoutAttributes;
+//}
 
 #pragma mark - getter & setter
 
@@ -35,7 +57,17 @@
     imageUrl = [imageUrl stringByReplacingOccurrencesOfString:@"/thumbnail/" withString:@"/bmiddle/"];
     _imageUrl = imageUrl;
     
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:_imageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.imageUrl] placeholderImage:[UIImage imageNamed:@"placeholder.png"]];
+}
+
+-(UIImageView *)imageView{
+    if(!_imageView){
+        _imageView = [[UIImageView alloc] init];
+        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.clipsToBounds = YES;
+        [self.contentView addSubview:_imageView];
+    }
+    return _imageView;
 }
 
 @end

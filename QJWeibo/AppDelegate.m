@@ -11,8 +11,6 @@
 #import "WeiboSDK.h"
 
 #define APP_KEY @"1730913158"
-#define APP_SECRET @"ace731305639467357b1bea6317db3fb"
-
 
 @interface AppDelegate ()
 

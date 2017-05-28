@@ -11,6 +11,7 @@
 #import "FeedView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 
+#define HEAD_IMAGEVIEW_WIDTH 30
 
 
 @interface QJFeedCell()
@@ -57,12 +58,12 @@
     [self.timeLabel sizeToFit];
     self.timeLabel.frame = CGRectMake(self.nameLabel.frame.origin.x, CGRectGetMaxY(self.nameLabel.frame), self.timeLabel.frame.size.width, self.timeLabel.frame.size.height);
     
-    self.feedView.frame = CGRectMake(0, CGRectGetMaxY(self.headImageView.frame), SCREEN_WIDTH, self.feedView.viewHeight);
+//    self.feedView.frame = CGRectMake(0, CGRectGetMaxY(self.headImageView.frame), SCREEN_WIDTH, self.feedView.viewHeight);
     
     
     if(self.feedView.feed[@"retweeted_status"]){
         self.reTweetedFeedView.hidden = NO;
-        self.reTweetedFeedView.frame = CGRectMake(0, CGRectGetMaxY(self.feedView.frame), SCREEN_WIDTH, self.reTweetedFeedView.viewHeight);
+//        self.reTweetedFeedView.frame = CGRectMake(0, CGRectGetMaxY(self.feedView.frame), SCREEN_WIDTH, self.reTweetedFeedView.viewHeight);
         self.cellHeight = CGRectGetMaxY(self.reTweetedFeedView.frame)+BLANK_OFFSET;
 
         

@@ -1,5 +1,6 @@
 PODS:
   - FLAnimatedImage (1.0.12)
+  - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - NYTPhotoViewer (1.1.0):
     - NYTPhotoViewer/AnimatedGifSupport (= 1.1.0)
@@ -14,9 +15,10 @@ PODS:
   - WeiboSDK (3.1.4)
 
 DEPENDENCIES:
+  - MBProgressHUD
   - MJRefresh
-  - NYTPhotoViewer (~> 1.1.0)
-  - SDWebImage (~> 3.8)
+  - NYTPhotoViewer
+  - SDWebImage
   - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
 
 EXTERNAL SOURCES:
@@ -30,11 +32,12 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
   WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
 
-PODFILE CHECKSUM: cafa9f25a4b0754d45bff71f7dea2d4d71423d12
+PODFILE CHECKSUM: a29c3ecec19ae62878dcc192db79814f52861e54
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.1
