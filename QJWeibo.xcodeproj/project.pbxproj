@@ -10,8 +10,6 @@
 		0F92928C4E172883A48F1A6E /* libPods-QJWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B351E826921805F008E5FCA8 /* libPods-QJWeibo.a */; };
 		FB1646FD1EDA79A70026441A /* UIView+SSLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1646FC1EDA79A70026441A /* UIView+SSLayout.m */; };
 		FB1647001EDA7A120026441A /* QJAutoLayoutFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1646FF1EDA7A120026441A /* QJAutoLayoutFeedCell.m */; };
-		FB3608071EDB1A2900F08701 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3608061EDB1A2900F08701 /* Foundation.framework */; };
-		FB3608091EDB1A3000F08701 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3608081EDB1A3000F08701 /* CoreGraphics.framework */; };
 		FB4321931DEAE67700CE74C5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4321921DEAE67700CE74C5 /* Security.framework */; };
 		FB4321981DEB1F1B00CE74C5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4321961DEB1F1B00CE74C5 /* Default.png */; };
 		FB4321991DEB1F1B00CE74C5 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4321971DEB1F1B00CE74C5 /* Default@2x.png */; };
@@ -78,8 +76,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB3608091EDB1A3000F08701 /* CoreGraphics.framework in Frameworks */,
-				FB3608071EDB1A2900F08701 /* Foundation.framework in Frameworks */,
 				FB4321A71DEDBDCF00CE74C5 /* UIKit.framework in Frameworks */,
 				FB4321931DEAE67700CE74C5 /* Security.framework in Frameworks */,
 				0F92928C4E172883A48F1A6E /* libPods-QJWeibo.a in Frameworks */,

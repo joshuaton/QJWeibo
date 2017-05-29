@@ -25,11 +25,11 @@
     if(self = [super initWithFrame:frame]){
         
         self.contentTextView.left.equalTo(superView).constant(DEFAULT_SPACE);
-        self.contentTextView.top.equalTo(superView).constant(DEFAULT_SPACE);
+        self.contentTextView.top.equalTo(superView);
         self.contentTextView.right.equalTo(superView).constant(-DEFAULT_SPACE);
         
         self.imageCollectionView.left.equalTo(superView).constant(DEFAULT_SPACE);
-        self.imageCollectionView.top.equalTo(self.contentTextView.bottom).constant(DEFAULT_SPACE);
+        self.imageCollectionView.top.equalTo(self.contentTextView.bottom);
         self.imageCollectionView.right.equalTo(superView).constant(-DEFAULT_SPACE);
         self.imageCollectionView.bottom.equalTo(superView);
 
@@ -51,7 +51,12 @@
         self.contentTextView.text = self.feed[@"text"];
     }
     
-    [self.imageCollectionView reloadData];
+    if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
+        [self.imageCollectionView reloadData];
+        self.imageCollectionView.height.remove();
+    }else{
+        self.imageCollectionView.height.equalTo(@0);
+    }
 
     
     

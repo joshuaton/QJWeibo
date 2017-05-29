@@ -59,7 +59,13 @@
     self.timeLabel.text = [self formatDateStr:self.feed[@"created_at"]];
     
     self.feedView.feed = self.feed;
-    self.reTweetedFeedView.feed = self.feedView.feed[@"retweeted_status"];
+    
+    if(self.feedView.feed[@"retweeted_status"]){
+        self.reTweetedFeedView.feed = self.feedView.feed[@"retweeted_status"];
+        self.reTweetedFeedView.height.remove();
+    }else{
+        self.reTweetedFeedView.height.equalTo(@0);
+    }
 
 
 }
