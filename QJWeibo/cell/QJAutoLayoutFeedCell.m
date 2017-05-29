@@ -40,12 +40,12 @@
         self.feedView.left.equalTo(superView);
         self.feedView.top.equalTo(self.timeLabel.bottom);
         self.feedView.right.equalTo(superView);
-        self.feedView.bottom.equalTo(superView).constant(-DEFAULT_SPACE);
         
-//        self.reTweetedFeedView.left.equalTo(superView);
-//        self.reTweetedFeedView.top.equalTo(self.feedView.bottom);
-//        self.reTweetedFeedView.right.equalTo(superView);
-//        self.reTweetedFeedView.bottom.equalTo(superView).constant(-DEFAULT_SPACE);
+        self.reTweetedFeedView.left.equalTo(superView);
+        self.reTweetedFeedView.top.equalTo(self.feedView.bottom);
+        self.reTweetedFeedView.right.equalTo(superView);
+        self.reTweetedFeedView.bottom.equalTo(superView).constant(-DEFAULT_SPACE);
+
     }
     return self;
 }
@@ -59,15 +59,9 @@
     self.timeLabel.text = [self formatDateStr:self.feed[@"created_at"]];
     
     self.feedView.feed = self.feed;
+    self.reTweetedFeedView.feed = self.feedView.feed[@"retweeted_status"];
 
-//    if(self.feedView.feed[@"retweeted_status"]){
-//        self.reTweetedFeedView.feed = self.feedView.feed[@"retweeted_status"];
-//        self.reTweetedFeedView.hidden = NO;
-//        self.reTweetedFeedView.bottom.equalTo(superView).constant(-DEFAULT_SPACE);
-//    }else{
-//        self.reTweetedFeedView.hidden = YES;
-//        self.feedView.bottom.equalTo(superView).constant(-DEFAULT_SPACE);
-//    }
+
 }
 
 -(NSString *)formatDateStr:(NSString *)str{

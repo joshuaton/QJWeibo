@@ -21,35 +21,29 @@
 
 @implementation QJFeedImageCell
 
-- (id)initWithFrame:(CGRect)frame{
-    self = [super initWithFrame:frame];
-    if (self){
+- (instancetype)initWithFrame:(CGRect)frame{
+    if (self = [super initWithFrame:frame]){
+        self.contentView.width.equalTo(@(ITEM_WIDTH));
+        self.contentView.height.equalTo(@(ITEM_WIDTH));
         self.imageView.left.equalTo(superView);
         self.imageView.top.equalTo(superView);
         self.imageView.right.equalTo(superView);
         self.imageView.bottom.equalTo(superView);
-        self.imageView.width.equalTo(@(ITEM_WIDTH));
-        self.imageView.height.equalTo(@(ITEM_WIDTH));
+        
     }
     
     return self;
 }
 
-//-(UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes{
-//    
-//    [super preferredLayoutAttributesFittingAttributes:layoutAttributes];
-//    
-//    if(self.isHeightCalculated){
-//        [self setNeedsLayout];
-//        [self layoutIfNeeded];
-//        CGSize size = [self.contentView systemLayoutSizeFittingSize:layoutAttributes.size];
-//        CGRect newFrame = layoutAttributes.frame;
-//        newFrame.size.width = ceilf(size.width);
-//        layoutAttributes.frame = newFrame;
-//        self.isHeightCalculated = YES;
-//    }
-//    return layoutAttributes;
-//}
+- (UICollectionViewLayoutAttributes *)preferredLayoutAttributesFittingAttributes:(UICollectionViewLayoutAttributes *)layoutAttributes {
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+    CGSize size = [self.contentView systemLayoutSizeFittingSize:layoutAttributes.size];
+    CGRect newFrame = layoutAttributes.frame;
+    newFrame.size.height = size.height;
+    layoutAttributes.frame = newFrame;
+    return layoutAttributes;
+}
 
 #pragma mark - getter & setter
 

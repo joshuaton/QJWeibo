@@ -50,15 +50,10 @@
         self.contentTextView.backgroundColor = [UIColor whiteColor];
         self.contentTextView.text = self.feed[@"text"];
     }
+    
+    [self.imageCollectionView reloadData];
 
-    if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
-        self.imageCollectionView.hidden = NO;
-        [self.imageCollectionView reloadData];
-        self.imageCollectionView.bottom.equalTo(superView);
-    }else{
-        self.imageCollectionView.hidden = YES;
-        self.contentTextView.bottom.equalTo(superView);
-    }
+    
     
     
 
@@ -85,6 +80,7 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    NSLog(@"junshao self feed pic url count %ld", [self.feed[@"pic_urls"] count]);
     return [self.feed[@"pic_urls"] count];
 }
 
@@ -97,17 +93,17 @@
 //- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section{
 //    return UIEdgeInsetsMake(0, 0, 0, 0);
 //}
-
-//设置每个item水平间距
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
-    return HALF_BLANK_OFFSET;
-}
-
-
-//设置每个item垂直间距
-- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
-    return HALF_BLANK_OFFSET;
-}
+//
+////设置每个item水平间距
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+//    return HALF_BLANK_OFFSET;
+//}
+//
+//
+////设置每个item垂直间距
+//- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+//    return HALF_BLANK_OFFSET;
+//}
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     
@@ -163,20 +159,12 @@
     if(!_imageCollectionView){
         
         UICollectionViewFlowLayout *layout = [[UICollectionViewFlowLayout alloc] init];
-        layout.estimatedItemSize = CGSizeMake(44, 44);
-
-        _imageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:layout];
+        layout.estimatedItemSize = CGSizeMake(200, 200);
+        _imageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, 300) collectionViewLayout:layout];
         _imageCollectionView.delegate = self;
         _imageCollectionView.dataSource = self;
         _imageCollectionView.backgroundColor = [UIColor whiteColor];
         [_imageCollectionView registerClass:[QJFeedImageCell class] forCellWithReuseIdentifier:NSStringFromClass([QJFeedImageCell class])];
-        if(self.isReTweet){
-            _imageCollectionView.backgroundColor = [UIColor colorWithRed:247.0/255.0 green:247.0/255.0 blue:247.0/255.0 alpha:1.0];
-        }else{
-            _imageCollectionView.backgroundColor = [UIColor whiteColor];
-        }
-        
-        
         [self addSubview:_imageCollectionView];
     }
     return _imageCollectionView;

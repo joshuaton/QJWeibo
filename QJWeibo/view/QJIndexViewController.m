@@ -110,6 +110,11 @@
 }
 
 - (QJAutoLayoutFeedCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+    
+    if(indexPath.row >= self.feeds.count){
+        return nil;
+    }
+    
     QJAutoLayoutFeedCell *cell = (QJAutoLayoutFeedCell *)[tableView dequeueReusableCellWithIdentifier:NSStringFromClass([QJAutoLayoutFeedCell class]) forIndexPath:indexPath];
     
     cell.feed = [self.feeds objectAtIndex:indexPath.row];;
