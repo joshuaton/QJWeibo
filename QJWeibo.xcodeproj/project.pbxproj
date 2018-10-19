@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0F92928C4E172883A48F1A6E /* libPods-QJWeibo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B351E826921805F008E5FCA8 /* libPods-QJWeibo.a */; };
-		FB1646FD1EDA79A70026441A /* UIView+SSLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1646FC1EDA79A70026441A /* UIView+SSLayout.m */; };
 		FB1647001EDA7A120026441A /* QJAutoLayoutFeedCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FB1646FF1EDA7A120026441A /* QJAutoLayoutFeedCell.m */; };
 		FB4321931DEAE67700CE74C5 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB4321921DEAE67700CE74C5 /* Security.framework */; };
 		FB4321981DEB1F1B00CE74C5 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = FB4321961DEB1F1B00CE74C5 /* Default.png */; };
@@ -34,8 +33,6 @@
 		96C63CC94724B41B7B2E38EE /* Pods-QJWeibo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QJWeibo.release.xcconfig"; path = "Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo.release.xcconfig"; sourceTree = "<group>"; };
 		9757CA0BF09C060306E2A33D /* Pods-QJWeibo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-QJWeibo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo.debug.xcconfig"; sourceTree = "<group>"; };
 		B351E826921805F008E5FCA8 /* libPods-QJWeibo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-QJWeibo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FB1646FB1EDA79A70026441A /* UIView+SSLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SSLayout.h"; sourceTree = "<group>"; };
-		FB1646FC1EDA79A70026441A /* UIView+SSLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SSLayout.m"; sourceTree = "<group>"; };
 		FB1646FE1EDA7A000026441A /* QJAutoLayoutFeedCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = QJAutoLayoutFeedCell.h; path = cell/QJAutoLayoutFeedCell.h; sourceTree = "<group>"; };
 		FB1646FF1EDA7A120026441A /* QJAutoLayoutFeedCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = QJAutoLayoutFeedCell.m; path = cell/QJAutoLayoutFeedCell.m; sourceTree = "<group>"; };
 		FB3608061EDB1A2900F08701 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,15 +103,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		FB1646FA1EDA79A70026441A /* extension */ = {
-			isa = PBXGroup;
-			children = (
-				FB1646FB1EDA79A70026441A /* UIView+SSLayout.h */,
-				FB1646FC1EDA79A70026441A /* UIView+SSLayout.m */,
-			);
-			path = extension;
-			sourceTree = "<group>";
-		};
 		FB43219F1DEDBCA800CE74C5 /* view */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,7 +151,6 @@
 				FB4F0BFC1E17EE7900B3C9C3 /* model */,
 				FBD8FEA91DF3F3AB0051F8C8 /* cell */,
 				FB43219F1DEDBCA800CE74C5 /* view */,
-				FB1646FA1EDA79A70026441A /* extension */,
 				FB72F4161DE9CDCA00996E06 /* AppDelegate.h */,
 				FB72F4171DE9CDCA00996E06 /* AppDelegate.m */,
 				FB72F41F1DE9CDCA00996E06 /* Assets.xcassets */,
@@ -220,7 +207,6 @@
 				FB72F40C1DE9CDCA00996E06 /* Sources */,
 				FB72F40D1DE9CDCA00996E06 /* Frameworks */,
 				FB72F40E1DE9CDCA00996E06 /* Resources */,
-				580A7BAF26C70FBAE69AFAC8 /* [CP] Embed Pods Frameworks */,
 				143FCAA93234C6AAAF57F30A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
@@ -290,28 +276,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/NYTPhotoViewer/NYTPhotoViewer.bundle",
+				"${PODS_ROOT}/Weibo_SDK/libWeiboSDK/WeiboSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/NYTPhotoViewer.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/WeiboSDK.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		580A7BAF26C70FBAE69AFAC8 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-QJWeibo/Pods-QJWeibo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DBB3E8D08409B72A857DC37D /* [CP] Check Pods Manifest.lock */ = {
@@ -320,13 +298,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-QJWeibo-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -341,7 +322,6 @@
 				FBE021BE1E082FB00053A378 /* QJFeedImageCell.m in Sources */,
 				FBFB3CBE1EDB189C008E3094 /* QJUIUtil.m in Sources */,
 				FB4321A31DEDBCC600CE74C5 /* QJLoginViewController.m in Sources */,
-				FB1646FD1EDA79A70026441A /* UIView+SSLayout.m in Sources */,
 				FBE021B61E082FA50053A378 /* QJIndexViewController.m in Sources */,
 				FBE021C11E095E360053A378 /* FeedView.m in Sources */,
 				FB72F4181DE9CDCA00996E06 /* AppDelegate.m in Sources */,

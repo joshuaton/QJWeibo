@@ -1,5 +1,6 @@
 PODS:
   - FLAnimatedImage (1.0.12)
+  - Masonry (1.1.0)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
   - NYTPhotoViewer (1.1.0):
@@ -12,32 +13,43 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - WeiboSDK (3.1.4)
+  - Weibo_SDK (3.2.3)
 
 DEPENDENCIES:
+  - Masonry
   - MBProgressHUD
   - MJRefresh
   - NYTPhotoViewer
   - SDWebImage
-  - WeiboSDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
+  - Weibo_SDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FLAnimatedImage
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - NYTPhotoViewer
+    - SDWebImage
 
 EXTERNAL SOURCES:
-  WeiboSDK:
+  Weibo_SDK:
     :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 CHECKOUT OPTIONS:
-  WeiboSDK:
-    :commit: 3daf7147ddd0fde3b04a61d8d94327d41d0c239c
+  Weibo_SDK:
+    :commit: f5b138320aefe0ed20b76b8510521432f1a6c9ac
     :git: https://github.com/sinaweibosdk/weibo_ios_sdk.git
 
 SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   NYTPhotoViewer: e80e8767f3780d2df37c6f72cbab15d6c7232911
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  WeiboSDK: bceab625ec59b7039ba721cc4ba9f5868804f63e
+  Weibo_SDK: 652ca78c2f7147a5de5e75e7cbea89838a81772a
 
-PODFILE CHECKSUM: a29c3ecec19ae62878dcc192db79814f52861e54
+PODFILE CHECKSUM: a24e32c4a57822e496e0303348207c2ecd305ebd
 
-COCOAPODS: 1.2.1
+COCOAPODS: 1.5.3

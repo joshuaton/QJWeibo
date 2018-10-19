@@ -23,15 +23,14 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]){
-        self.contentView.width.equalTo(@(ITEM_WIDTH));
-        self.contentView.height.equalTo(@(ITEM_WIDTH));
-        self.imageView.left.equalTo(superView);
-        self.imageView.top.equalTo(superView);
-        self.imageView.right.equalTo(superView);
-        self.imageView.bottom.equalTo(superView);
-        
+        [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.equalTo(@(ITEM_WIDTH));
+            make.height.equalTo(@(ITEM_WIDTH));
+        }];
+        [self.imageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.imageView.superview);
+        }];
     }
-    
     return self;
 }
 

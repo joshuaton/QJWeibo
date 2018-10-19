@@ -8,7 +8,6 @@
 
 #import "QJLoginViewController.h"
 #import "WeiboSDK.h"
-#import "WeiboSDK+Statistics.h"
 
 @interface QJLoginViewController ()
 

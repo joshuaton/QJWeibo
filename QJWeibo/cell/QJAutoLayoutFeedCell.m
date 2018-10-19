@@ -26,26 +26,31 @@
 
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if(self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]){
-        self.headImageView.left.equalTo(superView).constant(DEFAULT_SPACE);
-        self.headImageView.top.equalTo(superView).constant(DEFAULT_SPACE);
-        self.headImageView.width.equalTo(@HEAD_IMAGEVIEW_WIDTH);
-        self.headImageView.height.equalTo(@HEAD_IMAGEVIEW_WIDTH);
-        
-        self.nameLabel.left.equalTo(self.headImageView.right).constant(DEFAULT_SPACE);
-        self.nameLabel.top.equalTo(self.headImageView);
-        
-        self.timeLabel.left.equalTo(self.nameLabel);
-        self.timeLabel.top.equalTo(self.nameLabel.bottom);
-        
-        self.feedView.left.equalTo(superView);
-        self.feedView.top.equalTo(self.timeLabel.bottom);
-        self.feedView.right.equalTo(superView);
-        
-        self.reTweetedFeedView.left.equalTo(superView);
-        self.reTweetedFeedView.top.equalTo(self.feedView.bottom);
-        self.reTweetedFeedView.right.equalTo(superView);
-        self.reTweetedFeedView.bottom.equalTo(superView).constant(-DEFAULT_SPACE);
-
+        [self.headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@DEFAULT_SPACE);
+            make.top.equalTo(@DEFAULT_SPACE);
+            make.width.equalTo(@HEAD_IMAGEVIEW_WIDTH);
+            make.height.equalTo(@HEAD_IMAGEVIEW_WIDTH);
+        }];
+        [self.nameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.headImageView.mas_right).offset(DEFAULT_SPACE);
+            make.top.equalTo(self.headImageView);
+        }];
+        [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.nameLabel);
+            make.top.equalTo(self.nameLabel.mas_bottom);
+        }];
+        [self.feedView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@0);
+            make.top.equalTo(self.timeLabel.mas_bottom);
+            make.right.equalTo(@0);
+        }];
+        [self.reTweetedFeedView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@0);
+            make.top.equalTo(self.feedView.mas_bottom);
+            make.right.equalTo(@0);
+            make.bottom.equalTo(@-DEFAULT_SPACE);
+        }];
     }
     return self;
 }
@@ -62,9 +67,21 @@
     
     if(self.feedView.feed[@"retweeted_status"]){
         self.reTweetedFeedView.feed = self.feedView.feed[@"retweeted_status"];
-        self.reTweetedFeedView.height.remove();
+        
+        [self.reTweetedFeedView mas_remakeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@0);
+            make.top.equalTo(self.feedView.mas_bottom);
+            make.right.equalTo(@0);
+            make.bottom.equalTo(@-DEFAULT_SPACE);
+        }];
     }else{
-        self.reTweetedFeedView.height.equalTo(@0);
+        [self.reTweetedFeedView mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@0);
+            make.top.equalTo(self.feedView.mas_bottom);
+            make.right.equalTo(@0);
+            make.bottom.equalTo(@-DEFAULT_SPACE);
+            make.height.equalTo(@0);
+        }];
     }
 
 

@@ -23,16 +23,17 @@
 -(instancetype)initWithFrame:(CGRect)frame{
     
     if(self = [super initWithFrame:frame]){
-        
-        self.contentTextView.left.equalTo(superView).constant(DEFAULT_SPACE);
-        self.contentTextView.top.equalTo(superView);
-        self.contentTextView.right.equalTo(superView).constant(-DEFAULT_SPACE);
-        
-        self.imageCollectionView.left.equalTo(superView).constant(DEFAULT_SPACE);
-        self.imageCollectionView.top.equalTo(self.contentTextView.bottom);
-        self.imageCollectionView.right.equalTo(superView).constant(-DEFAULT_SPACE);
-        self.imageCollectionView.bottom.equalTo(superView);
-
+        [self.contentTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@DEFAULT_SPACE);
+            make.top.equalTo(@0);
+            make.right.equalTo(@-DEFAULT_SPACE);
+        }];
+        [self.imageCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@DEFAULT_SPACE);
+            make.top.equalTo(self.contentTextView.mas_bottom);
+            make.right.equalTo(@-DEFAULT_SPACE);
+            make.bottom.equalTo(@0);
+        }];
     }
     return self;
 }
@@ -53,29 +54,35 @@
     
     if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
         [self.imageCollectionView reloadData];
-        self.imageCollectionView.height.remove();
+        [self.imageCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@DEFAULT_SPACE);
+            make.top.equalTo(self.contentTextView.mas_bottom);
+            make.right.equalTo(@-DEFAULT_SPACE);
+            make.bottom.equalTo(@0);
+        }];
     }else{
-        self.imageCollectionView.height.equalTo(@0);
+        [self.imageCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(@DEFAULT_SPACE);
+            make.top.equalTo(self.contentTextView.mas_bottom);
+            make.right.equalTo(@-DEFAULT_SPACE);
+            make.bottom.equalTo(@0);
+            make.height.equalTo(@0);
+        }];
     }
 
-    
-    
-    
-
-    
 //    if(self.feed[@"pic_urls"] && [self.feed[@"pic_urls"] count] > 0){
 //        float imageRowNum = ([self.feed[@"pic_urls"] count]-1)/3+1;
 //        float singleRowHeight = (SCREEN_WIDTH-BLANK_OFFSET*2)/3;
-////        self.imageCollectionView.height.equalTo(@(imageRowNum*singleRowHeight));
+//        [self.imageCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.height.equalTo(@(imageRowNum*singleRowHeight));
+//        }];
 //        self.imageCollectionView.hidden = NO;
 //    }else{
 //        self.imageCollectionView.hidden = YES;
-//        self.contentTextView.bottom.equalTo(superView).constant(-DEFAULT_SPACE);
-//
+//        [self.contentTextView mas_makeConstraints:^(MASConstraintMaker *make) {
+//            make.bottom.equalTo(@-DEFAULT_SPACE);
+//        }];
 //    }
-    
-
-
 }
 
 #pragma mark - collectionview delegate
